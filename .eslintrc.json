@@ -1,0 +1,19 @@
+{
+    "extends": ["airbnb", "airbnb/hooks"],
+    "rules": {
+      "linebreak-style": "off",
+      "react/prop-types": 0,
+      "valid-jsdoc": "warn",
+      "require-jsdoc": "warn",
+      "comma-dangle": "off",
+      "jsx-a11y/label-has-associated-control": "off",
+      "jsx-a11y/label-has-for": "off",
+      "semi": [0, "always"]
+    },
+    "globals": {
+      "document": "readonly",
+      "sessionStorage": "writable",
+      "fetch": "writable"
+    }
+  }
+  
