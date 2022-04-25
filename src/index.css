@@ -1,22 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-/* base styles */
+/* ------ General ------ */
 * {
   margin: 0;
   font-family: 'Inter', sans-serif;
   color: #333;
+  background-color: rgb(227, 235, 236);
 }
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1em;
+}
+
 .navbar {
-  padding: 20px;
+  padding: 30px 10px;
   display: flex;
   align-items: center;
   max-width: 1000px;
   margin: 0 auto;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 1px solid #00000010;
 }
 .navbar h1 {
-  color: #f1356d;
+  color: #c62233;
 }
+
+.navbar h1 a {
+  margin-left: 0 !important;
+  padding: 0 !important;
+  font-weight: 800;
+  font-size: 32px;
+  position: relative;
+  top: 10px
+} 
+
 .navbar .links {
   margin-left: auto;
 }
@@ -26,7 +42,7 @@
   padding: 6px;
 }
 .navbar a:hover {
-  color: #f1356d;
+  color: #c62233;
 }
 .content {
   max-width: 1000px;
@@ -44,25 +60,23 @@
   box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
 }
 .blog-preview h2 {
-  font-size: 20px;
-  color: #f1356d;
+  font-size: 32px;
   margin-bottom: 8px;
 }
-.blog-preview a{
+.blog-preview a {
   text-decoration: none;
 }
 
 /* blog details page */
 .blog-details h2 {
-  font-size: 20px;
-  color: #f1356d;
+  font-size: 32px;
   margin-bottom: 10px;
 }
 .blog-details div {
   margin: 20px 0;
 }
 .blog-details button {
-  background: #f1356d;
+  background: #c62233;
   color: #fff;
   border: 0;
   padding: 8px;
@@ -72,7 +86,7 @@
 
 /* create new blog form */
 .create {
-  max-width: 400px;
+  max-width: 500px;
   margin: 0 auto;
   text-align: center;
 }
@@ -81,34 +95,48 @@
   display: block;
 }
 .create h2 {
-  font-size: 20px;
-  color: #f1356d;
+  font-size: 32px;
   margin-bottom: 30px;
 }
 .create input, .create textarea, .create select {
   width: 100%;
-  padding: 6px 10px;
-  margin: 10px 0;
+  padding: 13px;
+  margin: 0 0 15px 0;
   border: 1px solid #ddd;
   box-sizing: border-box;
   display: block;
+  border-radius: 4px;
+  background-color: #fff;
 }
 .create button {
-  background: #f1356d;
+  background: #111;
   color: #fff;
   border: 0;
-  padding: 8px;
-  border-radius: 8px;
+  padding: 13px 25px;
+  border-radius: 4px;
   cursor: pointer;
+  margin-top: 1em;
+}
+
+.create button:hover {
+  background-color: #c62233;
 }
 
 
 /* ------ Footer ------ */
 .site-footer {
-  padding: 20px;
-  display: flex;
+  padding: 30px 10px;
   align-items: center;
   max-width: 1000px;
   margin: 0 auto;
-  border-top: 1px solid #f2f2f2;
+  border-top: 1px solid #00000010;
+}
+
+.site-footer h1 {
+  font-weight: 800;
+  margin-bottom: 0;
+}
+
+.site-info {
+  font-size: 0.8em;
 }

@@ -9,10 +9,10 @@ import { Link } from 'react-router-dom'
 function Header() {
   return (
     <nav className="navbar">
-      <Link to="/"><h1>LOGO</h1></Link>
+      <h1><Link to="/">SONICRED</Link></h1>
       <div className="links">
         <Link to="/">Home</Link>
-        <Link to="/create">Create</Link>
+        <Link to="/create">Add album</Link>
       </div>
     </nav>
   )

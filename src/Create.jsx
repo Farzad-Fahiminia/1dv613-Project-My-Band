@@ -7,24 +7,28 @@ import React, { useState } from 'react'
  * @return {*} Returns component.
  */
 function Create() {
-  const [title, setTitle] = useState('');
-  const [body, setBody] = useState('');
-  const [author, setAuthor] = useState('mario');
+  const [artist, setArtist] = useState('');
+  const [recordTitle, setRecordTitle] = useState('');
+  const [releaseYear, setReleaseYear] = useState('');
+  const [format, setFormat] = useState('Vinyl');
   const [isPending, setIsPending] = useState(false)
   // const history = useHistory()
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    const blog = { title, body, author }
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    const record = {
+      artist, recordTitle, releaseYear, format
+    }
 
     setIsPending(true)
 
-    fetch('http://localhost:8081/blogs', {
+    fetch('http://localhost:8081/api/v1/records', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(blog)
+      body: JSON.stringify(record)
     }).then(() => {
-      // console.log('new blog added')
+      console.log(record)
+      console.log('new record added')
       setIsPending(false)
       // history.go(-1)
       // history.push('/')
@@ -32,17 +36,19 @@ function Create() {
   }
 
   return (
-    <div className="create">
+    <div className="content create">
       <h2>Add a new record</h2>
       <form onSubmit={handleSubmit}>
+        <label>Artist:</label>
+        <input type="text" required value={artist} onChange={(e) => setArtist(e.target.value)} />
         <label>Record title:</label>
-        <input type="text" required value={title} onChange={(e) => setTitle(e.target.value)} />
-        <label>Blog body:</label>
-        <textarea required value={body} onChange={(e) => setBody(e.target.value)} />
-        <label>Blog author:</label>
-        <select value={author} onChange={(e) => setAuthor(e.target.value)}>
-          <option value="mario">mario</option>
-          <option value="yoshi">yoshi</option>
+        <input type="text" required value={recordTitle} onChange={(e) => setRecordTitle(e.target.value)} />
+        <label>Release year:</label>
+        <input type="number" required value={releaseYear} onChange={(e) => setReleaseYear(e.target.value)} />
+        <label>Record format:</label>
+        <select value={format} onChange={(e) => setFormat(e.target.value)}>
+          <option value="Vinyl">Vinyl</option>
+          <option value="CD">CD</option>
         </select>
         { !isPending && <button type="submit">Add Record</button> }
         { isPending && <button disabled type="submit">Add Record...</button> }

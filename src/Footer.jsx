@@ -8,9 +8,9 @@ import React from 'react'
 function Footer() {
   return (
     <footer className="site-footer">
-      <h1>LOGO</h1>
-      <div className="links">
-        <p><small>© 2022 Made by Farzad</small></p>
+      <h1>SONICRED</h1>
+      <div className="site-info">
+        <p>© 2022 Made by Farzad</p>
       </div>
     </footer>
   )
