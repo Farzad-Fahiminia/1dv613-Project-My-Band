@@ -105,17 +105,7 @@ function Home() {
             <br />
           </div>
         ))}
-        <p>No records were found.</p>
-        {/* <p>
-          {record[0].format}
-          ,
-          {record[0].year}
-        </p> */}
-        {/* <br />
-        <h4>Playlist</h4>
-        <p>
-          {record[0].playlist.map((song) => <p>{song}</p>)}
-        </p> */}
+        {record === null && <p>No records were found.</p>}
       </div>
     </div>
   )
