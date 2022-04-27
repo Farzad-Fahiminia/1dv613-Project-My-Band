@@ -105,6 +105,7 @@ function Home() {
             <br />
           </div>
         ))}
+        <p>No records were found.</p>
         {/* <p>
           {record[0].format}
           ,
