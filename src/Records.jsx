@@ -5,7 +5,7 @@ import React, { useState } from 'react'
  *
  * @return {*} Returns component.
  */
-function Home() {
+function Records() {
   const [record, setRecord] = useState(null)
 
   // const record = fetch('http://localhost:8081/api/v1/records/62616235caa79834ef629410', {
@@ -52,21 +52,22 @@ function Home() {
   return (
     <div className="content">
 
-      {/* <div className="database">
+      <div className="database">
         <h2>Recently added record</h2>
+        {/* {record !== null && <p>{record.artist} - {record.recordTitle}</p>} */}
         {record !== null && record.map((records) => (
           <div>
-            <p>{records.artist} - {records.recordTitle}, {records.releaseYear}</p>
-            <p>{records.format}</p>
+            <p>{records.artist} - {records.recordTitle}, {records.releaseYear}
+              ({records.format})
+            </p>
             <br />
           </div>
         ))}
         {record === null && <p>No records were found.</p>}
-      </div> */}
+      </div>
 
-      <div className="database">
+      {/* <div className="database">
         <h2>Recently added record</h2>
-        {/* {record !== null && <p>{record.artist} - {record.recordTitle}</p>} */}
         {record !== null && (
           <div>
             <p>Artist: {record[record.length - 1].artist}</p>
@@ -77,10 +78,10 @@ function Home() {
           </div>
         )}
         {record === null && <p>No records were found.</p>}
-      </div>
+      </div> */}
 
     </div>
   )
 }
 
-export default Home
+export default Records

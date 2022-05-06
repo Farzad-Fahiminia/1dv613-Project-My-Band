@@ -12,8 +12,13 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1em;
 }
 
+a {
+  transition: all 0.3s ease 0s;
+}
+
 /* From uiverse.io */
 button {
+  margin: 1.2em 0;
   padding: 1.3em 3em;
   font-size: 12px;
   text-transform: uppercase;
@@ -30,8 +35,8 @@ button {
  }
  
  button:hover {
-  background-color: #2EE59D;
-  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  background-color: #c62233;
+  box-shadow: 0px 15px 20px rgba(229, 46, 46, 0.4);
   color: #fff;
   transform: translateY(-7px);
  }
@@ -40,15 +45,20 @@ button {
   transform: translateY(-1px);
  }
 
-.navbar {
+/* .navbar {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
   padding: 30px 10px;
   display: flex;
   align-items: center;
   max-width: 1000px;
   margin: 0 auto;
   border-bottom: 1px solid #00000010;
-}
-.navbar h1 {
+} */
+
+/* .navbar h1 {
   color: #c62233;
 }
 
@@ -64,14 +74,17 @@ button {
 .navbar .links {
   margin-left: auto;
 }
+
 .navbar a {
   margin-left: 16px;
   text-decoration: none;
   padding: 6px;
 }
+
 .navbar a:hover {
   color: #c62233;
-}
+} */
+
 .content {
   max-width: 1000px;
   margin: 40px auto;
@@ -136,19 +149,6 @@ button {
   border-radius: 4px;
   background-color: #fff;
 }
-.create button {
-  background: #111;
-  color: #fff;
-  border: 0;
-  padding: 13px 25px;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-top: 1em;
-}
-
-.create button:hover {
-  background-color: #c62233;
-}
 
 
 /* ------ Footer ------ */
@@ -168,3 +168,66 @@ button {
 .site-info {
   font-size: 0.8em;
 }
+
+/* ------ Menu ------ */
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  /* background-color: #fff; */
+  padding: 15px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.navbar .menu {
+  font-size: 1.5em;
+}
+
+.logo {
+  margin-right: 50px;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+#toggler,
+.navbar label {
+  display: none;
+}
+
+@media screen and (max-width: 750px) {
+  .menu {
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  .list {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .navbar label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  #toggler:checked ~ .menu {
+    max-height: 100%;
+  }
+}
+
+
+
+/* ------ Responsive ------ */
+

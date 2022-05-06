@@ -4,6 +4,7 @@ import Header from './Header'
 import Home from './Home'
 import Footer from './Footer'
 import Create from './Create'
+import Records from './Records'
 
 /**
  * App component.
@@ -22,6 +23,7 @@ function App() {
         <Header />
         <Routes>
           <Route exact path="/" element={<Home />} />
+          <Route path="/records" element={<Records />} />
           <Route path="/create" element={<Create />} />
         </Routes>
         <Footer />
