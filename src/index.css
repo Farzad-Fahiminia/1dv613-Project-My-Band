@@ -45,7 +45,7 @@ button {
   transform: translateY(-1px);
  }
 
-/* .navbar {
+.navbar {
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 2.5px;
@@ -56,9 +56,9 @@ button {
   max-width: 1000px;
   margin: 0 auto;
   border-bottom: 1px solid #00000010;
-} */
+}
 
-/* .navbar h1 {
+.navbar h1:hover {
   color: #c62233;
 }
 
@@ -66,7 +66,7 @@ button {
   margin-left: 0 !important;
   padding: 0 !important;
   font-weight: 800;
-  font-size: 32px;
+  /* font-size: 32px; */
   position: relative;
   top: 10px
 } 
@@ -76,14 +76,14 @@ button {
 }
 
 .navbar a {
-  margin-left: 16px;
+  /* margin-left: 16px; */
   text-decoration: none;
-  padding: 6px;
+  /* padding: 6px; */
 }
 
 .navbar a:hover {
   color: #c62233;
-} */
+}
 
 .content {
   max-width: 1000px;
@@ -184,10 +184,6 @@ button {
   color: inherit;
 }
 
-.navbar .menu {
-  font-size: 1.5em;
-}
-
 .logo {
   margin-right: 50px;
 }
@@ -220,6 +216,10 @@ button {
     display: inline-flex;
     align-items: center;
     cursor: pointer;
+  }
+
+  .navbar .menu {
+    font-size: 1.5em;
   }
 
   #toggler:checked ~ .menu {
