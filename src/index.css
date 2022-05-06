@@ -218,6 +218,10 @@ button {
     cursor: pointer;
   }
 
+  .navbar i {
+    font-style: normal;
+  }
+
   .navbar .menu {
     font-size: 1.5em;
   }
