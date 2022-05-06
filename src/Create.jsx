@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-// import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 /**
  * Create component.
@@ -12,7 +12,7 @@ function Create() {
   const [releaseYear, setReleaseYear] = useState('');
   const [format, setFormat] = useState('Vinyl');
   const [isPending, setIsPending] = useState(false)
-  // const history = useHistory()
+  const navigate = useNavigate()
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -31,7 +31,7 @@ function Create() {
       console.log('new record added')
       setIsPending(false)
       // history.go(-1)
-      // history.push('/')
+      navigate('/records')
     })
   }
 
