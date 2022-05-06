@@ -36,7 +36,7 @@ function Records() {
 
   fetchData()
 
-  // console.log(data)
+  // console.log(record)
 
   // const test = () => {
   //   fetch('http://localhost:8081/api/v1/records/62616235caa79834ef629410', {
@@ -56,7 +56,7 @@ function Records() {
         <h2>Recently added record</h2>
         {/* {record !== null && <p>{record.artist} - {record.recordTitle}</p>} */}
         {record !== null && record.map((records) => (
-          <div>
+          <div className="record" key={records.id}>
             <p>{records.artist} - {records.recordTitle}, {records.releaseYear}
               ({records.format})
             </p>
