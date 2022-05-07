@@ -11,7 +11,7 @@ function Create() {
   const [recordTitle, setRecordTitle] = useState('');
   const [releaseYear, setReleaseYear] = useState('');
   const [format, setFormat] = useState('Vinyl');
-  const [coverURL, setCoverURL] = useState('https://farzad.se/wp-content/uploads/2021/06/dbf-l-bl.png');
+  const [coverURL, setCoverURL] = useState('');
   const [isPending, setIsPending] = useState(false)
   const navigate = useNavigate()
 
@@ -46,13 +46,13 @@ function Create() {
         <input type="text" required value={recordTitle} onChange={(e) => setRecordTitle(e.target.value)} />
         <label>Release year:</label>
         <input type="number" required value={releaseYear} onChange={(e) => setReleaseYear(e.target.value)} />
+        <label>Cover image URL:</label>
+        <input type="text" required value={coverURL} onChange={(e) => setCoverURL(e.target.value)} />
         <label>Record format:</label>
         <select value={format} onChange={(e) => setFormat(e.target.value)}>
           <option value="Vinyl">Vinyl</option>
           <option value="CD">CD</option>
         </select>
-        <label>Cover image:</label>
-        <input type="text" required value={coverURL} onChange={(e) => setCoverURL(e.target.value)} />
         { !isPending && <button type="submit">Add Record</button> }
         { isPending && <button disabled type="submit">Add Record...</button> }
       </form>
