@@ -39,7 +39,7 @@ function Records() {
             <p className="small">Released: {records.releaseYear}, Format: {records.format}</p>
             <br />
           </div>
-        ))}
+        )).reverse()}
         {record === null && <p>No records were found.</p>}
       </div>
 
