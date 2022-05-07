@@ -36,7 +36,7 @@ function Home() {
 
   fetchData()
 
-  // console.log(data)
+  console.log(record)
 
   // const test = () => {
   //   fetch('http://localhost:8081/api/v1/records/62616235caa79834ef629410', {
@@ -69,6 +69,8 @@ function Home() {
         {/* {record !== null && <p>{record.artist} - {record.recordTitle}</p>} */}
         {record !== null && (
           <div>
+            <img className="cover-image" src={record[record.length - 1].coverURL} alt="Cover" />
+            <p>{record[record.length - 1].coverURL}</p>
             <p>Artist: {record[record.length - 1].artist}</p>
             <p>Album: {record[record.length - 1].recordTitle}</p>
             <p>Year: {record[record.length - 1].releaseYear}</p>

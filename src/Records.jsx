@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 /**
- * Home component.
+ * Records component.
  *
  * @return {*} Returns component.
  */

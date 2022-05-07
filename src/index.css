@@ -91,6 +91,10 @@ button {
   padding: 20px;
 }
 
+.cover-image {
+  max-width: 250px;
+}
+
 /* blog previews / list */
 .blog-preview {
   padding: 10px 16px;
