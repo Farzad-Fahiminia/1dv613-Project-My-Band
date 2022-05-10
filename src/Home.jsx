@@ -8,18 +8,6 @@ import React, { useState } from 'react'
 function Home() {
   const [record, setRecord] = useState(null)
 
-  // const record = fetch('http://localhost:8081/api/v1/records/62616235caa79834ef629410', {
-  //   method: 'GET',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   // body: JSON.stringify(record)
-  // }).then(() => {
-  //   console.log('Get record REACT')
-  //   // setIsPending(false)
-  //   // history.go(-1)
-  //   // history.push('/')
-  // })
-  // console.log(record)
-
   /**
    * Fetches records.
    *
@@ -45,41 +33,68 @@ function Home() {
   //       'Content-Type': 'application/json'
   //     }
   //   }).then(() => {
+  //      // history.go(-1)
   //     // history.push('/');
   //   })
   // }
 
   return (
-    <div className="content">
+    <div className="header-section">
+      <div className="content">
 
-      {/* <div className="database">
-        <h2>Recently added record</h2>
-        {record !== null && record.map((records) => (
-          <div>
-            <p>{records.artist} - {records.recordTitle}, {records.releaseYear}</p>
-            <p>{records.format}</p>
-            <br />
-          </div>
-        ))}
-        {record === null && <p>No records were found.</p>}
-      </div> */}
+        {/* <div className="database">
+          <h2>Recently added record</h2>
+          {record !== null && record.map((records) => (
+            <div>
+              <p>{records.artist} - {records.recordTitle}, {records.releaseYear}</p>
+              <p>{records.format}</p>
+              <br />
+            </div>
+          ))}
+          {record === null && <p>No records were found.</p>}
+        </div> */}
 
-      <div className="database">
-        <h2>Recently added record</h2>
-        {/* {record !== null && <p>{record.artist} - {record.recordTitle}</p>} */}
-        {record !== null && (
-          <div>
-            <img className="cover-image" src={record[record.length - 1].coverURL} alt="Cover" />
-            <p>Artist: <b>{record[record.length - 1].artist}</b></p>
-            <p>Album: {record[record.length - 1].recordTitle}</p>
-            <p>Release Year: {record[record.length - 1].releaseYear}</p>
-            <p>Format: {record[record.length - 1].format}</p>
-            <br />
+        <div className="database">
+          <div className="left-part">
+            <h1 className="frontpage-headline">music<br />playing<br />on stage.</h1>
+            {record !== null && (
+              <p>Performing now {record[record.length - 1].artist}</p>
+            )}
           </div>
-        )}
-        {record === null && <p>No records were found.</p>}
+
+          <div className="right-part">
+            {/* <h2>Recently added record</h2> */}
+            {/* {record !== null && <p>{record.artist} - {record.recordTitle}</p>} */}
+            {record !== null && (
+              <div className="latest-record">
+                <h2 className="recently-added">Recently added</h2>
+                <img className="cover-image" src={record[record.length - 1].coverURL} alt="Cover" />
+                <p className="band-title">{record[record.length - 1].artist}</p>
+                <p className="band-album center">{record[record.length - 1].recordTitle}</p>
+                <p className="center small">
+                  Release Year: {record[record.length - 1].releaseYear},
+                  Format: {record[record.length - 1].format}
+                </p>
+                <br />
+              </div>
+            )}
+            {record === null && <p>No records were found.</p>}
+          </div>
+        </div>
+
       </div>
-
+      {/* <div className="block">
+        <h2>En ny sektion med innehåll?</h2>
+        <h2>En ny sektion med innehåll?</h2>
+        <h2>En ny sektion med innehåll?</h2>
+        <h2>En ny sektion med innehåll?</h2>
+        <h2>En ny sektion med innehåll?</h2>
+        <h2>En ny sektion med innehåll?</h2>
+        <h2>En ny sektion med innehåll?</h2>
+        <h2>En ny sektion med innehåll?</h2>
+        <h2>En ny sektion med innehåll?</h2>
+        <h2>En ny sektion med innehåll?</h2>
+      </div> */}
     </div>
   )
 }

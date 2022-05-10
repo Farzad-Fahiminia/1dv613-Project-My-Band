@@ -6,6 +6,9 @@
   font-family: 'Inter', sans-serif;
   color: #333;
   /* background-color: rgb(227, 235, 236); */
+  /* overflow-wrap: break-word; */
+  /* word-break: break-all; */
+  /* overflow-wrap: anywhere; */
 }
 
 html {
@@ -34,6 +37,16 @@ a {
 
 .small {
   font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.center {
+  text-align: center;
+}
+
+.block {
+  display: block;
+  clear: both;
 }
 
 /* From uiverse.io */
@@ -63,6 +76,16 @@ button {
  
  button:active {
   transform: translateY(-1px);
+ }
+
+ .header-wrapper {
+   width: 100%;
+   /* background-color: rgba(255, 255, 255, 0.8);
+   backdrop-filter: blur(20px); */
+   /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+   position: fixed;
+   top: 0;
+   z-index: 999; */
  }
 
 .navbar {
@@ -105,21 +128,113 @@ button {
   color: #c62233;
 }
 
+.header-section {
+  background-image: url("../public/img/frontpage-concert.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 30px 0;
+  min-height: 500px;
+  /* margin-top: 74px; */
+}
+
 .content {
   max-width: 1200px;
-  margin: 40px auto;
+  /* margin: 110px auto !important; */
+  margin: 30px auto !important;
   padding: 20px;
 }
 
+.left-part {
+  display: block;
+  float: left;
+}
+
+.left-part h1,
+.left-part *,
+.right-part h2,
+.right-part * {
+  color: #fff !important;
+}
+
+.left-part h1 {
+  font-size: 6em;
+  white-space: break-spaces;
+}
+
+.right-part {
+  display: block;
+  float: right;
+}
+
+.frontpage-headline {
+  text-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  line-height: 0.95em;
+  margin-top: 0.2em;
+}
+
+.latest-record {
+  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+  padding: 2em 3em;
+  border-radius: 7px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  margin-top: 0px;
+  max-width: 350px;
+  /* backdrop-filter: blur(20px);
+  background-color: #194864b3; */
+}
+
+.latest-record img {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  margin-bottom: 2em;
+  width: 400px;
+}
+
+.latest-record .cover-image {
+  max-width: 350px;
+}
+
+.recently-added {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: 200;
+  letter-spacing: 5px;
+}
+
+.band-title {
+  font-size: 1.8em;
+  font-weight: 700 !important;
+  letter-spacing: 1px;
+  margin-bottom: 0.3em;
+  text-transform: uppercase;
+  text-align: center;
+  /* overflow-wrap: break-all; */
+  /* text-overflow: ellipsis; */
+  overflow-wrap: break-word;
+}
+
+.band-album {
+  font-size: 1.2em;
+  margin-bottom: 0.6em;
+}
+
 .cover-image {
-  max-width: 250px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  max-width: 280px;
   border-radius: 4px;
   margin-bottom: 10px;
+  transition: transform 300ms;
 }
+
+.cover-image:hover {
+  transform: scale(1.03);
+}
+
 
 .record {
   display: inline-block;
-  width: 250px;
+  width: 280px;
   margin: 0 20px 20px 0;
 }
 
@@ -129,15 +244,18 @@ button {
   margin: 0 auto;
   text-align: center;
 }
+
 .create label {
   text-align: left;
   display: block;
   margin-bottom: 5px;
 }
+
 .create h2 {
   font-size: 32px;
   margin-bottom: 30px;
 }
+
 .create input, .create textarea, .create select {
   width: 100%;
   padding: 13px;
@@ -152,11 +270,14 @@ button {
 
 /* ------ Footer ------ */
 .site-footer {
-  padding: 30px 10px;
+  /* background-color: #fff; */
+  padding: 70px 10px;
+  text-align: center;
   align-items: center;
-  max-width: 1200px;
+  /* max-width: 1200px; */
+  width: 100%;
   margin: 0 auto;
-  border-top: 1px solid #00000010;
+  border-top: 1px solid #00000020;
 }
 
 .site-footer h1 {
@@ -177,7 +298,7 @@ button {
   align-items: center;
   justify-content: space-between;
   /* background-color: #fff; */
-  padding: 15px;
+  padding: 15px 30px;
 }
 
 .navbar a {
