@@ -27,22 +27,27 @@ function Records() {
   // console.log(record)
 
   return (
-    <div className="content">
-
-      <div className="database">
-        <h1>My Records</h1>
-        {/* {record !== null && <p>{record.artist} - {record.recordTitle}</p>} */}
-        {record !== null && record.map((records) => (
-          <div className="record" key={records.id}>
-            <img className="cover-image" src={records.coverURL} alt="Cover" />
-            <p><b>{records.artist} - {records.recordTitle}</b></p>
-            <p className="small">Released: {records.releaseYear}, Format: {records.format}</p>
-            <br />
-          </div>
-        )).reverse()}
-        {record === null && <p>No records were found.</p>}
+    <div>
+      <div className="record-header">
+        <h1 className="center light-text">My Records</h1>
+        <p className="small center light-text">Collection</p>
       </div>
+      <div className="content">
 
+        <div className="database">
+          {/* {record !== null && <p>{record.artist} - {record.recordTitle}</p>} */}
+          {record !== null && record.map((records) => (
+            <div className="record" key={records.id}>
+              <img className="cover-image" src={records.coverURL} alt="Cover" />
+              <p><b>{records.artist} - {records.recordTitle}</b></p>
+              <p className="small">Released: {records.releaseYear}, Format: {records.format}</p>
+              <br />
+            </div>
+          )).reverse()}
+          {record === null && <p>No records were found.</p>}
+        </div>
+
+      </div>
     </div>
   )
 }

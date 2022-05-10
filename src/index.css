@@ -44,6 +44,10 @@ a {
   text-align: center;
 }
 
+.light-text {
+  color: #fff !important;
+}
+
 .block {
   display: block;
   clear: both;
@@ -159,6 +163,16 @@ button {
   min-height: 500px;
 }
 
+.record-header {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url("../public/img/vinyl.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 50px 0 10px 0;
+  min-height: 100px;
+  /* backdrop-filter: blur(20px); */
+}
+
 .content {
   max-width: 1200px;
   /* margin: 110px auto !important; */
@@ -251,7 +265,6 @@ button {
 .cover-image:hover {
   transform: scale(1.03);
 }
-
 
 .record {
   display: inline-block;
