@@ -39,22 +39,10 @@ function Home() {
   // }
 
   return (
-    <div className="header-section">
-      <div className="content">
+    <div>
+      <div className="header-section">
+        <div className="content">
 
-        {/* <div className="database">
-          <h2>Recently added record</h2>
-          {record !== null && record.map((records) => (
-            <div>
-              <p>{records.artist} - {records.recordTitle}, {records.releaseYear}</p>
-              <p>{records.format}</p>
-              <br />
-            </div>
-          ))}
-          {record === null && <p>No records were found.</p>}
-        </div> */}
-
-        <div className="database">
           <div className="left-part">
             <h1 className="frontpage-headline">music<br />playing<br />on stage.</h1>
             {record !== null && (
@@ -80,21 +68,14 @@ function Home() {
             )}
             {record === null && <p>No records were found.</p>}
           </div>
-        </div>
 
+        </div>
       </div>
-      {/* <div className="block">
+      <div className="block content">
         <h2>En ny sektion med innehåll?</h2>
-        <h2>En ny sektion med innehåll?</h2>
-        <h2>En ny sektion med innehåll?</h2>
-        <h2>En ny sektion med innehåll?</h2>
-        <h2>En ny sektion med innehåll?</h2>
-        <h2>En ny sektion med innehåll?</h2>
-        <h2>En ny sektion med innehåll?</h2>
-        <h2>En ny sektion med innehåll?</h2>
-        <h2>En ny sektion med innehåll?</h2>
-        <h2>En ny sektion med innehåll?</h2>
-      </div> */}
+        <p>En ny sektion med innehåll?</p>
+      </div>
+
     </div>
   )
 }

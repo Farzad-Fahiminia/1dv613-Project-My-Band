@@ -80,6 +80,8 @@ button {
 
  .header-wrapper {
    width: 100%;
+   margin: 0;
+   padding: 0;
    /* background-color: rgba(255, 255, 255, 0.8);
    backdrop-filter: blur(20px); */
    /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -88,17 +90,47 @@ button {
    z-index: 999; */
  }
 
+ /* ------ Menu ------ */
+
+.logo {
+  margin-right: 50px;
+}
+
 .navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 2.5px;
   font-weight: 500;
   padding: 30px 10px;
-  display: flex;
-  align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  border-bottom: 1px solid #00000010;
+  border-bottom: 1px solid #00000020;
+}
+
+.navbar a {
+  text-decoration: none;
+  padding-bottom: 5px;
+  color: inherit;
+}
+
+.navbar a:hover, .link-active {
+  /* color: #c62233; */
+  border-bottom: #333 solid 1px;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+#toggler,
+.navbar label {
+  display: none;
 }
 
 .navbar h1:hover {
@@ -118,16 +150,6 @@ button {
   margin-left: auto;
 }
 
-.navbar a {
-  /* margin-left: 16px; */
-  text-decoration: none;
-  /* padding: 6px; */
-}
-
-.navbar a:hover {
-  color: #c62233;
-}
-
 .header-section {
   background-image: url("../public/img/frontpage-concert.jpg");
   background-position: center;
@@ -135,7 +157,6 @@ button {
   background-size: cover;
   padding: 30px 0;
   min-height: 500px;
-  /* margin-top: 74px; */
 }
 
 .content {
@@ -271,10 +292,10 @@ button {
 /* ------ Footer ------ */
 .site-footer {
   /* background-color: #fff; */
-  padding: 70px 10px;
+  padding: 50px 0px;
   text-align: center;
   align-items: center;
-  /* max-width: 1200px; */
+  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
   border-top: 1px solid #00000020;
@@ -291,35 +312,8 @@ button {
   font-size: 0.8em;
 }
 
-/* ------ Menu ------ */
-.navbar {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  /* background-color: #fff; */
-  padding: 15px 30px;
-}
 
-.navbar a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.logo {
-  margin-right: 50px;
-}
-
-.list {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-}
-
-#toggler,
-.navbar label {
-  display: none;
-}
+/* ------ Responsiv design ------ */
 
 @media screen and (max-width: 750px) {
   .menu {

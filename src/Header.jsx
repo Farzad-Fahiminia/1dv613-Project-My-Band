@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 /**
  * Header component.
@@ -10,15 +10,15 @@ function Header() {
   return (
     <div className="header-wrapper">
       <nav className="navbar">
-        <h1><Link to="/">SONICRED</Link></h1>
+        <h1><NavLink to="/">SONICRED</NavLink></h1>
         <input type="checkbox" id="toggler" />
         <label htmlFor="toggler"><i className="ri-menu-line">Menu</i></label>
         <div className="menu">
           <ul className="list">
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/records">My Records</Link></li>
-            <li><Link to="/create">Add Record</Link></li>
-            <li><Link to="/Login">Login</Link></li>
+            <li><NavLink to="/" className={({ isActive }) => (isActive ? 'link-active' : 'link')}>Home</NavLink></li>
+            <li><NavLink to="/records" className={({ isActive }) => (isActive ? 'link-active' : 'link')}>My Records</NavLink></li>
+            <li><NavLink to="/create" className={({ isActive }) => (isActive ? 'link-active' : 'link')}>Add Record</NavLink></li>
+            <li><NavLink to="/Login" className={({ isActive }) => (isActive ? 'link-active' : 'link')}>Login</NavLink></li>
           </ul>
         </div>
       </nav>
