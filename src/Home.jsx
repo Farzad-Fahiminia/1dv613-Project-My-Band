@@ -15,7 +15,8 @@ function Home() {
    */
   function fetchData() {
     if (record === null) {
-      const apiUrl = 'http://localhost:8081/api/v1/records/'
+      // const apiUrl = 'http://localhost:8081/api/v1/records/'
+      const apiUrl = 'https://sonicred-resource-server.herokuapp.com/api/v1/records'
       fetch(apiUrl)
         .then((response) => response.json())
         .then((data) => setRecord(data))
