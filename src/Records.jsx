@@ -32,9 +32,8 @@ function Records() {
   return (
     <div>
       <div className="record-header">
-        <h1 className="center light-text">My Records</h1>
+        <h1 className="center extreme">My records.</h1>
         <NavLink to="/create"><button className="fixedbutton" type="submit">+ Add Record</button></NavLink>
-        <p className="small center light-text">Collection</p>
       </div>
       <div className="content">
 

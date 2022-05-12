@@ -35,6 +35,12 @@ a {
   transition: all 0.3s ease 0s;
 }
 
+.title-border {
+  width: 800px;
+  margin: -25px auto 15px auto;
+  border: #c62233 solid 2px;
+}
+
 .small {
   font-size: 12px;
   letter-spacing: 1px;
@@ -42,6 +48,15 @@ a {
 
 .center {
   text-align: center;
+}
+
+.extreme {
+  font-size: 9em;
+  font-weight: 900;
+  letter-spacing: -5px;
+  line-height: 0.8em;
+  margin: 25px;
+  text-transform: lowercase;
 }
 
 .light-text {
@@ -177,15 +192,15 @@ button {
   min-height: 500px;
 }
 
-.record-header {
+/* .record-header {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url("../public/img/vinyl.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   padding: 50px 0 10px 0;
   min-height: 100px;
-  /* backdrop-filter: blur(20px); */
-}
+  backdrop-filter: blur(20px);
+} */
 
 .content {
   max-width: 1200px;
@@ -209,6 +224,7 @@ button {
 .left-part h1 {
   font-size: 6em;
   white-space: break-spaces;
+  font-weight: 900;
 }
 
 .right-part {
@@ -247,7 +263,7 @@ button {
   text-transform: uppercase;
   text-align: center;
   font-size: 1.2em;
-  font-weight: 200;
+  font-weight: 800;
   letter-spacing: 5px;
 }
 
@@ -269,17 +285,20 @@ button {
 }
 
 .cover-image {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px; */
   max-width: 280px;
   border-radius: 4px;
   margin-bottom: 10px;
   transition: transform 300ms;
   display: block;
   margin: 20px auto;
+  transition: ease-in-out 300ms;
 }
 
 .cover-image:hover {
   transform: scale(1.03);
+  box-shadow: rgba(229, 46, 46, 0.25) 0px 50px 100px -20px, rgba(229, 46, 46, 0.4) 0px 30px 60px -30px;
+  /* box-shadow: 0px 15px 20px rgba(229, 46, 46, 0.4); */
 }
 
 .record {
