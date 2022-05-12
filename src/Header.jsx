@@ -18,7 +18,8 @@ function Header() {
             <li><NavLink to="/" className={({ isActive }) => (isActive ? 'link-active' : 'link')}>Home</NavLink></li>
             <li><NavLink to="/records" className={({ isActive }) => (isActive ? 'link-active' : 'link')}>My Records</NavLink></li>
             <li><NavLink to="/create" className={({ isActive }) => (isActive ? 'link-active' : 'link')}>Add Record</NavLink></li>
-            <li><NavLink to="/Login" className={({ isActive }) => (isActive ? 'link-active' : 'link')}>Login</NavLink></li>
+            <li><NavLink to="/edit" className={({ isActive }) => (isActive ? 'link-active' : 'link')}>Edit Record</NavLink></li>
+            <li><NavLink to="/login" className={({ isActive }) => (isActive ? 'link-active' : 'link')}>Login</NavLink></li>
           </ul>
         </div>
       </nav>

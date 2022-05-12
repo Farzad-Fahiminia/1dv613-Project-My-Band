@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 /**
- * Create component.
+ * Edit component.
  *
  * @return {*} Returns component.
  */
-function Create() {
+function Edit() {
   const [artist, setArtist] = useState('');
   const [recordTitle, setRecordTitle] = useState('');
   const [releaseYear, setReleaseYear] = useState('');
@@ -14,6 +14,25 @@ function Create() {
   const [coverURL, setCoverURL] = useState('');
   const [isPending, setIsPending] = useState(false)
   const navigate = useNavigate()
+  const [getRecord, setRecord] = useState(null)
+
+  /**
+   * Fetches records.
+   *
+   * @returns {*} - Nothing.
+   */
+  function fetchData() {
+    if (getRecord === null) {
+      const apiUrl = 'http://localhost:8081/api/v1/records/'
+      fetch(apiUrl)
+        .then((response) => response.json())
+        .then((data) => setRecord(data))
+    }
+  }
+
+  fetchData()
+
+  console.log(getRecord)
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -25,10 +44,12 @@ function Create() {
 
     // fetch('http://localhost:8081/api/v1/records', {
     fetch('https://sonicred-resource-server.herokuapp.com/api/v1/records', {
-      method: 'POST',
+      method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(record)
     }).then(() => {
+      console.log(record)
+      console.log('Record edited')
       setIsPending(false)
       // history.go(-1)
       navigate('/records')
@@ -37,7 +58,7 @@ function Create() {
 
   return (
     <div className="content create">
-      <h2>Add a new record</h2>
+      <h2>Edit record</h2>
       <form onSubmit={handleSubmit}>
         <label>Artist:</label>
         <input type="text" required value={artist} onChange={(e) => setArtist(e.target.value)} />
@@ -52,11 +73,11 @@ function Create() {
           <option value="Vinyl">Vinyl</option>
           <option value="CD">CD</option>
         </select>
-        { !isPending && <button type="submit">Add Record</button> }
-        { isPending && <button disabled type="submit">Add Record...</button> }
+        { !isPending && <button type="submit">Save Edit</button> }
+        { isPending && <button disabled type="submit">Save Edit...</button> }
       </form>
     </div>
   )
 }
 
-export default Create
+export default Edit

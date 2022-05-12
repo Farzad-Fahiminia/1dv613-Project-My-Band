@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+// import Edit from './Edit'
 
 /**
  * Records component.
@@ -15,7 +16,8 @@ function Records() {
    */
   function fetchData() {
     if (record === null) {
-      const apiUrl = 'http://localhost:8081/api/v1/records/'
+      // const apiUrl = 'http://localhost:8081/api/v1/records/'
+      const apiUrl = 'https://sonicred-resource-server.herokuapp.com/api/v1/records'
       fetch(apiUrl)
         .then((response) => response.json())
         .then((data) => setRecord(data))
@@ -41,6 +43,8 @@ function Records() {
               <img className="cover-image" src={records.coverURL} alt="Cover" />
               <p><b>{records.artist} - {records.recordTitle}</b></p>
               <p className="small">Released: {records.releaseYear}, Format: {records.format}</p>
+              <p>Edit knapp</p>
+              {/* <Edit /> */}
               <br />
             </div>
           )).reverse()}
