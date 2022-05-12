@@ -274,6 +274,8 @@ button {
   border-radius: 4px;
   margin-bottom: 10px;
   transition: transform 300ms;
+  display: block;
+  margin: 20px auto;
 }
 
 .cover-image:hover {
@@ -342,6 +344,23 @@ button {
 
 /* ------ Responsiv design ------ */
 
+@media screen and (max-width: 965px) {
+  .right-part {
+    display: block;
+    clear: both;
+    width: 100%;
+    margin-top: 110px;
+    margin-bottom: 50px;
+  }
+
+  .latest-record {
+    /* margin-top: 110px; */
+    /* margin-bottom: 50px; */
+    margin: auto;
+    max-width: 450px;
+  }
+}
+
 @media screen and (max-width: 750px) {
   .menu {
     width: 100%;
@@ -353,6 +372,10 @@ button {
     flex-direction: column;
     align-items: center;
     padding: 20px;
+  }
+
+  .navbar {
+    padding: 30px 30px;
   }
 
   .navbar label {
@@ -371,10 +394,18 @@ button {
 
   #toggler:checked ~ .menu {
     max-height: 100%;
+    margin: 50px;
   }
+
+  .latest-record {
+    /* margin-top: 110px;
+    margin-bottom: 50px; */
+    /* margin: auto; */
+    max-width: 350px;
+    display: block;
+    clear: both;
+  }
+
 }
 
-
-
-/* ------ Responsive ------ */
 
