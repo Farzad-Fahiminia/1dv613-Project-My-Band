@@ -66,7 +66,7 @@ function Home() {
                 <br />
               </div>
             )}
-            {record === null && <p>No records were found.</p>}
+            {/* {record === null && <p>No records were found.</p>} */}
           </div>
 
         </div>

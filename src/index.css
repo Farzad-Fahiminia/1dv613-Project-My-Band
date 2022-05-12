@@ -53,6 +53,12 @@ a {
   clear: both;
 }
 
+.fixedbutton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
 /* From uiverse.io */
 button {
   margin: 1.2em 0;

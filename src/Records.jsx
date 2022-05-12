@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 // import Edit from './Edit'
 
 /**
@@ -32,6 +33,7 @@ function Records() {
     <div>
       <div className="record-header">
         <h1 className="center light-text">My Records</h1>
+        <NavLink to="/create"><button className="fixedbutton" type="submit">+ Add Record</button></NavLink>
         <p className="small center light-text">Collection</p>
       </div>
       <div className="content">
