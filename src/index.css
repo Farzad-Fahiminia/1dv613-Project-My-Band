@@ -51,7 +51,7 @@ a {
 }
 
 .extreme {
-  font-size: 9em;
+  font-size: 9vw;
   font-weight: 900;
   letter-spacing: -5px;
   line-height: 0.8em;
@@ -123,6 +123,20 @@ button {
    z-index: 999; */
  }
 
+ .edit {
+   padding: 0;
+   background-color: transparent;
+   color: #333;
+   box-shadow: none;
+ }
+
+ .edit:hover {
+  background-color: transparent;
+  color: #333;
+  box-shadow: none;
+  transform: none;
+}
+
  /* ------ Menu ------ */
 
 .logo {
@@ -166,8 +180,9 @@ button {
   display: none;
 }
 
-.navbar h1:hover {
+.navbar h1:hover, .navbar h1 a:hover {
   color: #c62233;
+  border-bottom: 0 !important;
 }
 
 .navbar h1 a {
@@ -257,6 +272,7 @@ button {
 
 .latest-record .cover-image {
   max-width: 350px;
+  width: 100%;
 }
 
 .recently-added {
@@ -373,8 +389,6 @@ button {
   }
 
   .latest-record {
-    /* margin-top: 110px; */
-    /* margin-bottom: 50px; */
     margin: auto;
     max-width: 450px;
   }

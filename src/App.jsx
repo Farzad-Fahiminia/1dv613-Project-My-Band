@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Header from './Header'
 import Home from './Home'
@@ -13,20 +13,26 @@ import Records from './Records'
  * @return {*} Returns component.
  */
 function App() {
+  const [componentToRender, setComponentToRender] = useState(null)
+
+  const onEditHandler = ({
+    artist, recordTitle, releaseYear, format, coverURL
+  }) => {
+    // eslint-disable-next-line max-len
+    setComponentToRender(<Edit artist={artist} recordTitle={recordTitle} releaseYear={releaseYear} format={format} coverURL={coverURL} />)
+  }
+
+  // setComponentToRender(<Records onEditHandler={onEditHandler} />)
+
   return (
-    // <div>
-    //   <Header />
-    //   <Home />
-    //   <Footer />
-    // </div>
     <div className="App">
       <BrowserRouter>
         <Header />
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route path="/records" element={<Records />} />
+          <Route path="/records" element={<Records onEditHandler={onEditHandler} />} />
           <Route path="/create" element={<Create />} />
-          <Route path="/edit" element={<Edit />} />
+          <Route path="/edit" element={componentToRender || <Edit />} />
         </Routes>
         <Footer />
       </BrowserRouter>

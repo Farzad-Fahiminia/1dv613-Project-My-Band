@@ -7,11 +7,11 @@ import { useNavigate } from 'react-router-dom'
  * @return {*} Returns component.
  */
 function Create() {
-  const [artist, setArtist] = useState('');
-  const [recordTitle, setRecordTitle] = useState('');
-  const [releaseYear, setReleaseYear] = useState('');
-  const [format, setFormat] = useState('Vinyl');
-  const [coverURL, setCoverURL] = useState('');
+  const [artist, setArtist] = useState('')
+  const [recordTitle, setRecordTitle] = useState('')
+  const [releaseYear, setReleaseYear] = useState('')
+  const [format, setFormat] = useState('Vinyl')
+  const [coverURL, setCoverURL] = useState('')
   const [isPending, setIsPending] = useState(false)
   const navigate = useNavigate()
 
