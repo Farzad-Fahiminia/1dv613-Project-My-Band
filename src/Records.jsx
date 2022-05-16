@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
-// import Edit from './Edit'
 
 /**
  * Records component.
@@ -28,8 +27,6 @@ function Records({ onEditHandler }) {
 
   fetchData()
 
-  // console.log(record)
-
   const onClickHandler = (event) => {
     event.preventDefault()
     onEditHandler({
@@ -42,16 +39,10 @@ function Records({ onEditHandler }) {
     navigate('/edit')
   }
 
-  /**
-   *
-   *
-   * @param {*} id
-   */
-  function handleRemove(id) {
-    console.log(id);
-    const newList = record.filter((item) => item.id !== id);
+  const handleRemove = (id) => {
+    const newList = record.filter((item) => item.id !== id)
 
-    setRecord(newList);
+    setRecord(newList)
 
     fetch(`https://sonicred-resource-server.herokuapp.com/api/v1/records/${id}`, {
       method: 'DELETE',
@@ -85,12 +76,10 @@ function Records({ onEditHandler }) {
               <input type="hidden" name="releaseYear" value={records.releaseYear} />
               <input type="hidden" name="format" value={records.format} />
               <br />
-              {/* <NavLink to="/edit" record="hej">Edit Record</NavLink> */}
-              <button type="submit" className="edit">Edit record</button>
-              <button type="button" onClick={() => handleRemove(records.id)}>
+              <button type="submit" className="removeBtnStyle">Edit record</button><br />
+              <button type="button" className="removeBtnStyle" onClick={() => handleRemove(records.id)}>
                 Remove
               </button>
-              {/* <Edit record={records} /> */}
               <br />
             </form>
           )).reverse()}

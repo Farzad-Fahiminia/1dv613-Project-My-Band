@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { createUserWithEmailAndPassword, setPersistence, signInWithEmailAndPassword, onAuthStateChanged, signOut, getIdToken, getAuth, browserSessionPersistence } from 'firebase/auth'
 import { auth } from './firebase-config'
-import { useNavigate } from 'react-router-dom'
 
 /**
  * Login component.
@@ -32,6 +32,7 @@ function Login() {
       if (response.user.email) {
         const authenticate = getAuth()
         const token = await getIdToken(authenticate.currentUser)
+        console.log(token)
         navigate('/user')
       }
     } catch (error) {

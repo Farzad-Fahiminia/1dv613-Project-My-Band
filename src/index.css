@@ -123,16 +123,19 @@ button {
    z-index: 999; */
  }
 
- .edit {
+ .removeBtnStyle {
    padding: 0;
    background-color: transparent;
    color: #333;
+   border-radius: 0;
    box-shadow: none;
+   border-bottom: transparent solid 1px;
  }
 
- .edit:hover {
+ .removeBtnStyle:hover {
   background-color: transparent;
   color: #333;
+  border-bottom: #333 solid 1px;
   box-shadow: none;
   transform: none;
 }

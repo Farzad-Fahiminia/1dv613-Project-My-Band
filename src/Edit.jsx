@@ -38,6 +38,10 @@ function Edit({
     })
   }
 
+  const cancel = () => {
+    navigate('/records')
+  }
+
   return (
     <div>
       <h1 className="center extreme">Edit record.</h1>
@@ -57,6 +61,7 @@ function Edit({
             <option value="Vinyl">Vinyl</option>
             <option value="CD">CD</option>
           </select>
+          <button type="button" onClick={cancel}>Cancel</button>
           { !isPending && <button type="submit">Save Edit</button> }
           { isPending && <button disabled type="submit">Save Edit...</button> }
         </form>
