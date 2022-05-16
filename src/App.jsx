@@ -6,6 +6,7 @@ import Footer from './Footer'
 import Create from './Create'
 import Edit from './Edit'
 import Records from './Records'
+import Login from './Login'
 
 /**
  * App component.
@@ -33,6 +34,7 @@ function App() {
           <Route path="/records" element={<Records onEditHandler={onEditHandler} />} />
           <Route path="/create" element={<Create />} />
           <Route path="/edit" element={componentToRender || <Edit />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
         <Footer />
       </BrowserRouter>
