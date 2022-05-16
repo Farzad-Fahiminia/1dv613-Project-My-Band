@@ -7,6 +7,7 @@ import Create from './Create'
 import Edit from './Edit'
 import Records from './Records'
 import Login from './Login'
+import User from './User'
 
 /**
  * App component.
@@ -35,6 +36,7 @@ function App() {
           <Route path="/create" element={<Create />} />
           <Route path="/edit" element={componentToRender || <Edit />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/user" element={<User />} />
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { createUserWithEmailAndPassword, setPersistence, signInWithEmailAndPassword, onAuthStateChanged, signOut, getIdToken, getAuth, browserSessionPersistence } from 'firebase/auth'
 import { auth } from './firebase-config'
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 /**
  * Login component.
@@ -13,15 +13,35 @@ function Login() {
   const [password, setPassword] = useState('')
   const [registerEmail, setRegisterEmail] = useState('')
   const [registerPassword, setRegisterPassword] = useState('')
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
   const register = async (event) => {
     try {
       event.preventDefault()
       const user = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword)
-      console.log(user)
-      // console.log(registerEmail)
-      // console.log(registerPassword)
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+
+  const login = async (event) => {
+    try {
+      event.preventDefault()
+      setPersistence(auth, browserSessionPersistence)
+      const response = await signInWithEmailAndPassword(auth, username, password)
+      if (response.user.email) {
+        const authenticate = getAuth()
+        const token = await getIdToken(authenticate.currentUser)
+        navigate('/user')
+      }
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+
+  const signout = async () => {
+    try {
+      await signOut(auth)
     } catch (error) {
       console.log(error.message)
     }
@@ -32,19 +52,20 @@ function Login() {
       <h1 className="center extreme">Login.</h1>
       <div className="content create">
         <form>
-          <label>Username:</label>
-          <input type="email" required value={username} onChange={(e) => setUsername(e.target.value)} />
+          <label>Email:</label>
+          <input type="email" required onChange={(e) => setUsername(e.target.value)} />
           <label>Password:</label>
-          <input type="password" required value={password} onChange={(e) => setPassword(e.target.value)} />
-          <button type="submit">Login</button>
+          <input type="password" required onChange={(e) => setPassword(e.target.value)} />
+          <button type="submit" onClick={login}>Login</button>
+          <button type="submit" onClick={signout}>Signout</button>
         </form>
 
         <h1 className="center extreme">Register.</h1>
         <form>
-          <label>Username:</label>
-          <input type="email" onChange={(e) => setRegisterEmail(e.target.value)} />
+          <label>Email:</label>
+          <input type="email" required onChange={(e) => setRegisterEmail(e.target.value)} />
           <label>Password:</label>
-          <input type="password" onChange={(e) => setRegisterPassword(e.target.value)} />
+          <input type="password" required onChange={(e) => setRegisterPassword(e.target.value)} />
           <button type="submit" onClick={register}>Register</button>
         </form>
       </div>
