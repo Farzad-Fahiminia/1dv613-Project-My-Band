@@ -25,20 +25,6 @@ function Home() {
 
   fetchData()
 
-  // console.log(record)
-
-  // const test = () => {
-  //   fetch('http://localhost:8081/api/v1/records/62616235caa79834ef629410', {
-  //     method: 'GET',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     }
-  //   }).then(() => {
-  //      // history.go(-1)
-  //     // history.push('/');
-  //   })
-  // }
-
   return (
     <div>
       <div className="header-section">
@@ -52,7 +38,6 @@ function Home() {
           </div>
 
           <div className="right-part">
-            {/* {record !== null && <p>{record.artist} - {record.recordTitle}</p>} */}
             {record !== null && (
               <div className="latest-record">
                 <h2 className="recently-added">Recently added</h2>

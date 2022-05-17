@@ -65,10 +65,10 @@ function Records({ onEditHandler }) {
       </div>
       <div className="content">
 
-        <div className="database">
+        <div className="database row">
           {/* {record !== null && <p>{record.artist} - {record.recordTitle}</p>} */}
           {record !== null && record.map((records) => (
-            <form onSubmit={onClickHandler} className="record" key={records.id}>
+            <form onSubmit={onClickHandler} className="record col" key={records.id}>
               <input type="hidden" name="id" value={records.id} />
               <img className="cover-image" src={records.coverURL} alt="Cover" />
               <input type="hidden" name="coverURL" value={records.coverURL} />

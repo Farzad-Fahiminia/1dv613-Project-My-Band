@@ -30,7 +30,6 @@ function Create() {
       body: JSON.stringify(record)
     }).then(() => {
       setIsPending(false)
-      // history.go(-1)
       navigate('/records')
     })
   }

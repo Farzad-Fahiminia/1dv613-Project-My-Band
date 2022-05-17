@@ -35,6 +35,15 @@ a {
   transition: all 0.3s ease 0s;
 }
 
+.row {
+  display: flex; /* equal height of the children */
+  flex-wrap: wrap;
+}
+
+.col {
+  flex: 1; /* additionally, equal width */
+}
+
 .title-border {
   width: 800px;
   margin: -25px auto 15px auto;
@@ -131,6 +140,7 @@ button:active {
   border-radius: 0;
   box-shadow: none;
   border-bottom: transparent solid 1px;
+  transition: none;
 }
 
 .removeBtnStyle:hover {
@@ -311,7 +321,7 @@ button:active {
   margin-bottom: 10px;
   transition: transform 300ms;
   display: block;
-  margin: 20px auto;
+  /* margin: 20px auto; */
   transition: ease-in-out 300ms;
 }
 

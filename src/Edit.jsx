@@ -29,15 +29,6 @@ function Edit({
       coverURL: thisCoverURL
     }
 
-    console.log(record)
-    console.log(thisArtist)
-
-    console.log('TEST ID', id)
-    console.log(artist)
-
-    console.log(event.target)
-    console.log(`https://sonicred-resource-server.herokuapp.com/api/v1/records/${id}`)
-
     setIsPending(true)
 
     // fetch('http://localhost:8081/api/v1/records', {
@@ -47,7 +38,6 @@ function Edit({
       body: JSON.stringify(record)
     }).then(() => {
       setIsPending(false)
-      // history.go(-1)
       navigate('/records')
     })
   }
