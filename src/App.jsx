@@ -18,10 +18,10 @@ function App() {
   const [componentToRender, setComponentToRender] = useState(null)
 
   const onEditHandler = ({
-    artist, recordTitle, releaseYear, format, coverURL
+    artist, recordTitle, releaseYear, format, coverURL, id
   }) => {
     // eslint-disable-next-line max-len
-    setComponentToRender(<Edit artist={artist} recordTitle={recordTitle} releaseYear={releaseYear} format={format} coverURL={coverURL} />)
+    setComponentToRender(<Edit artist={artist} recordTitle={recordTitle} releaseYear={releaseYear} format={format} coverURL={coverURL} id={id} />)
   }
 
   // setComponentToRender(<Records onEditHandler={onEditHandler} />)

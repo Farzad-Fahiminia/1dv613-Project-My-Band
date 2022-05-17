@@ -100,18 +100,18 @@ button {
   outline: none;
  }
  
- button:hover {
+button:hover {
   background-color: #c62233;
   box-shadow: 0px 15px 20px rgba(229, 46, 46, 0.4);
   color: #fff;
   transform: translateY(-7px);
- }
+}
  
- button:active {
+button:active {
   transform: translateY(-1px);
- }
+}
 
- .header-wrapper {
+.header-wrapper {
    width: 100%;
    margin: 0;
    padding: 0;
@@ -121,18 +121,19 @@ button {
    position: fixed;
    top: 0;
    z-index: 999; */
- }
+}
 
- .removeBtnStyle {
-   padding: 0;
-   background-color: transparent;
-   color: #333;
-   border-radius: 0;
-   box-shadow: none;
-   border-bottom: transparent solid 1px;
- }
+.removeBtnStyle {
+  margin: 0.4em 0;
+  padding: 0;
+  background-color: transparent;
+  color: #333;
+  border-radius: 0;
+  box-shadow: none;
+  border-bottom: transparent solid 1px;
+}
 
- .removeBtnStyle:hover {
+.removeBtnStyle:hover {
   background-color: transparent;
   color: #333;
   border-bottom: #333 solid 1px;

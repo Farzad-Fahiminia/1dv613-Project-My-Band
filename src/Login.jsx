@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { createUserWithEmailAndPassword, setPersistence, signInWithEmailAndPassword, onAuthStateChanged, signOut, getIdToken, getAuth, browserSessionPersistence } from 'firebase/auth'
+import {
+  createUserWithEmailAndPassword, setPersistence, signInWithEmailAndPassword,
+  signOut, getIdToken, getAuth, browserSessionPersistence
+} from 'firebase/auth'
 import { auth } from './firebase-config'
 
 /**
@@ -19,6 +22,7 @@ function Login() {
     try {
       event.preventDefault()
       const user = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword)
+      console.log(user)
     } catch (error) {
       console.log(error.message)
     }

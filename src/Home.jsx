@@ -52,7 +52,6 @@ function Home() {
           </div>
 
           <div className="right-part">
-            {/* <h2>Recently added record</h2> */}
             {/* {record !== null && <p>{record.artist} - {record.recordTitle}</p>} */}
             {record !== null && (
               <div className="latest-record">
@@ -67,7 +66,6 @@ function Home() {
                 <br />
               </div>
             )}
-            {/* {record === null && <p>No records were found.</p>} */}
           </div>
 
         </div>

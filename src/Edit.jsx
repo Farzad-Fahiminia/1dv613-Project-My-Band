@@ -8,26 +8,40 @@ import { useNavigate } from 'react-router-dom'
  * @return {*} Returns component.
  */
 function Edit({
-  artist, recordTitle, releaseYear, format, coverURL
+  artist, recordTitle, releaseYear, format, coverURL, id
 }) {
-  // const [artist, setArtist] = useState('');
-  // const [recordTitle, setRecordTitle] = useState('');
-  // const [releaseYear, setReleaseYear] = useState('');
-  // const [format, setFormat] = useState('Vinyl');
-  // const [coverURL, setCoverURL] = useState('');
+  const [thisArtist, setThisArtist] = useState('')
+  const [thisRecordTitle, setThisRecordTitle] = useState('')
+  const [thisReleaseYear, setReleaseYear] = useState('')
+  const [thisFormat, setThisFormat] = useState('')
+  const [thisCoverURL, setThisCoverURL] = useState('')
   const [isPending, setIsPending] = useState(false)
   const navigate = useNavigate()
 
   const handleSubmit = (event) => {
+    console.log(event)
     event.preventDefault()
     const record = {
-      artist, recordTitle, releaseYear, format, coverURL
+      artist: thisArtist,
+      recordTitle: thisRecordTitle,
+      releaseYear: thisReleaseYear,
+      format: thisFormat,
+      coverURL: thisCoverURL
     }
+
+    console.log(record)
+    console.log(thisArtist)
+
+    console.log('TEST ID', id)
+    console.log(artist)
+
+    console.log(event.target)
+    console.log(`https://sonicred-resource-server.herokuapp.com/api/v1/records/${id}`)
 
     setIsPending(true)
 
     // fetch('http://localhost:8081/api/v1/records', {
-    fetch('https://sonicred-resource-server.herokuapp.com/api/v1/records', {
+    fetch(`https://sonicred-resource-server.herokuapp.com/api/v1/records/${id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(record)
@@ -47,17 +61,18 @@ function Edit({
       <h1 className="center extreme">Edit record.</h1>
       <div className="content create">
         <form onSubmit={handleSubmit}>
+          <input type="hidden" name="id" value={id} />
           <label>Artist:</label>
           {/* <input type="text" value={artist} onChange={(e) => setArtist(e.target.value)} /> */}
-          <input type="text" required value={artist} />
+          <input type="text" required defaultValue={artist} onChange={(e) => setThisArtist(e.target.value)} />
           <label>Record title:</label>
-          <input type="text" required value={recordTitle} />
+          <input type="text" required defaultValue={recordTitle} onChange={(e) => setThisRecordTitle(e.target.value)} />
           <label>Release year:</label>
-          <input type="number" required value={releaseYear} />
+          <input type="number" required defaultValue={releaseYear} onChange={(e) => setReleaseYear(e.target.value)} />
           <label>Cover image URL:</label>
-          <input type="text" required value={coverURL} />
+          <input type="text" required defaultValue={coverURL} onChange={(e) => setThisCoverURL(e.target.value)} />
           <label>Record format:</label>
-          <select value={format}>
+          <select defaultValue={format} onChange={(e) => setThisFormat(e.target.value)}>
             <option value="Vinyl">Vinyl</option>
             <option value="CD">CD</option>
           </select>

@@ -28,13 +28,16 @@ function Records({ onEditHandler }) {
   fetchData()
 
   const onClickHandler = (event) => {
+    console.log(event)
+    console.log(event.target.querySelector('input[name="id"]').value)
     event.preventDefault()
     onEditHandler({
       artist: event.target.querySelector('input[name="artist"]').value || '',
       recordTitle: event.target.querySelector('input[name="recordTitle"]').value || '',
       releaseYear: event.target.querySelector('input[name="releaseYear"]').value || '',
       format: event.target.querySelector('input[name="format"]').value || '',
-      coverURL: event.target.querySelector('input[name="coverURL"]').value || ''
+      coverURL: event.target.querySelector('input[name="coverURL"]').value || '',
+      id: event.target.querySelector('input[name="id"]').value || ''
     })
     navigate('/edit')
   }
