@@ -19,7 +19,6 @@ function Edit({
   const navigate = useNavigate()
 
   const handleSubmit = (event) => {
-    console.log(event)
     event.preventDefault()
     const record = {
       artist: thisArtist,
@@ -53,7 +52,6 @@ function Edit({
         <form onSubmit={handleSubmit}>
           <input type="hidden" name="id" value={id} />
           <label>Artist:</label>
-          {/* <input type="text" value={artist} onChange={(e) => setArtist(e.target.value)} /> */}
           <input type="text" required defaultValue={artist} onChange={(e) => setThisArtist(e.target.value)} />
           <label>Record title:</label>
           <input type="text" required defaultValue={recordTitle} onChange={(e) => setThisRecordTitle(e.target.value)} />

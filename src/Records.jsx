@@ -28,8 +28,6 @@ function Records({ onEditHandler }) {
   fetchData()
 
   const onClickHandler = (event) => {
-    console.log(event)
-    console.log(event.target.querySelector('input[name="id"]').value)
     event.preventDefault()
     onEditHandler({
       artist: event.target.querySelector('input[name="artist"]').value || '',
@@ -66,7 +64,6 @@ function Records({ onEditHandler }) {
       <div className="content">
 
         <div className="database row">
-          {/* {record !== null && <p>{record.artist} - {record.recordTitle}</p>} */}
           {record !== null && record.map((records) => (
             <form onSubmit={onClickHandler} className="record col" key={records.id}>
               <input type="hidden" name="id" value={records.id} />
