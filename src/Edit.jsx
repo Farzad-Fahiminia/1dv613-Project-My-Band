@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 /**
- * Create component.
+ * Edit component.
  *
  * @param {*} props - Specific record.
  * @return {*} Returns component.

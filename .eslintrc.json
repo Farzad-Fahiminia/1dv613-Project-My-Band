@@ -10,7 +10,8 @@
       "jsx-a11y/label-has-for": "off",
       "semi": [0, "always"],
       "no-console": "off",
-      "react/jsx-one-expression-per-line": "off"
+      "react/jsx-one-expression-per-line": "off",
+      "no-shadow": "off"
     },
     "globals": {
       "document": "readonly",
