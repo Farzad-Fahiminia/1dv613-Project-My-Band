@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
+import LoginContext from './Context'
 
 /**
  * Records component.
@@ -9,6 +10,8 @@ import { NavLink, useNavigate } from 'react-router-dom'
 function Records({ onEditHandler }) {
   const [record, setRecord] = useState(null)
   const navigate = useNavigate()
+  const { loggedIn } = useContext(LoginContext)
+  console.log('Records: ', loggedIn)
 
   /**
    * Fetches records.
@@ -76,10 +79,12 @@ function Records({ onEditHandler }) {
               <input type="hidden" name="releaseYear" value={records.releaseYear} />
               <input type="hidden" name="format" value={records.format} />
               <br />
-              <button type="submit" className="removeBtnStyle">Edit record</button><br />
+              {loggedIn !== false && <button type="submit" className="removeBtnStyle">Edit record</button>}<br />
+              {loggedIn !== false && (
               <button type="button" className="removeBtnStyle" onClick={() => handleRemove(records.id)}>
                 Remove
               </button>
+              )}
               <br />
             </form>
           )).reverse()}
