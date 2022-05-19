@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
   createUserWithEmailAndPassword, setPersistence, signInWithEmailAndPassword,
-  signOut, getIdToken, getAuth, browserSessionPersistence
+  getIdToken, getAuth, browserSessionPersistence
 } from 'firebase/auth'
 import { auth } from './firebase-config'
 import LoginContext from './Context'
@@ -47,16 +47,6 @@ function Login() {
     }
   }
 
-  const signout = async () => {
-    try {
-      await signOut(auth)
-      setLoggedIn(false)
-      navigate('/')
-    } catch (error) {
-      console.log(error.message)
-    }
-  }
-
   return (
     <div>
       <h1 className="center extreme">Login.</h1>
@@ -68,7 +58,7 @@ function Login() {
           <input type="password" required onChange={(e) => setPassword(e.target.value)} />
           <button type="submit" onClick={login}>Login</button>
         </form>
-        <button type="submit" onClick={signout}>Signout</button>
+        {/* <button type="submit" onClick={signout}>Signout</button> */}
 
         <h1 className="center extreme">Register.</h1>
         <form>

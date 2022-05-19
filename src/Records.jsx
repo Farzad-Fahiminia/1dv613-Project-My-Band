@@ -62,7 +62,7 @@ function Records({ onEditHandler }) {
     <div>
       <div className="record-header">
         <h1 className="center extreme">My records.</h1>
-        <NavLink to="/create"><button className="fixedbutton" type="submit">+ Add Record</button></NavLink>
+        {loggedIn === true && <NavLink to="/create"><button className="fixedbutton" type="button">+ Add Record</button></NavLink>}
       </div>
       <div className="content">
 
@@ -79,8 +79,8 @@ function Records({ onEditHandler }) {
               <input type="hidden" name="releaseYear" value={records.releaseYear} />
               <input type="hidden" name="format" value={records.format} />
               <br />
-              {loggedIn !== false && <button type="submit" className="removeBtnStyle">Edit record</button>}<br />
-              {loggedIn !== false && (
+              {loggedIn === true && <button type="submit" className="removeBtnStyle">Edit record</button>}<br />
+              {loggedIn === true && (
               <button type="button" className="removeBtnStyle" onClick={() => handleRemove(records.id)}>
                 Remove
               </button>

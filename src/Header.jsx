@@ -1,5 +1,7 @@
 import React, { useContext } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { signOut } from 'firebase/auth'
+import { auth } from './firebase-config'
 import LoginContext from './Context'
 
 /**
@@ -10,6 +12,18 @@ import LoginContext from './Context'
 function Header() {
   const { loggedIn } = useContext(LoginContext)
   console.log('Header: ', loggedIn)
+  const navigate = useNavigate()
+  const { setLoggedIn } = useContext(LoginContext)
+
+  const signout = async () => {
+    try {
+      await signOut(auth)
+      setLoggedIn(false)
+      navigate('/')
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
 
   return (
     <div className="header-wrapper">
@@ -21,8 +35,9 @@ function Header() {
           <ul className="list">
             <li><NavLink to="/" className={({ isActive }) => (isActive ? 'link-active' : 'link')}>Home</NavLink></li>
             <li><NavLink to="/records" className={({ isActive }) => (isActive ? 'link-active' : 'link')}>My Records</NavLink></li>
-            <li><NavLink to="/login" className={({ isActive }) => (isActive ? 'link-active' : 'link')}>Login</NavLink></li>
-            {loggedIn !== false && <li><NavLink to="/user" className={({ isActive }) => (isActive ? 'link-active' : 'link')}>User</NavLink></li>}
+            {loggedIn === true && <li><NavLink to="/user" className={({ isActive }) => (isActive ? 'link-active' : 'link')}>User</NavLink></li>}
+            {loggedIn === true && <li><NavLink to="/" onClick={signout}>Signout</NavLink></li>}
+            {loggedIn === false && <li><NavLink to="/login" className={({ isActive }) => (isActive ? 'link-active' : 'link')}>Login</NavLink></li>}
           </ul>
         </div>
       </nav>
