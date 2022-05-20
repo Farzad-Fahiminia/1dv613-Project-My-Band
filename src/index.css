@@ -38,10 +38,11 @@ a {
 .row {
   display: flex; /* equal height of the children */
   flex-wrap: wrap;
+  align-content: flex-start;
 }
 
 .col {
-  flex: 1; /* additionally, equal width */
+  align-content: flex-start;
 }
 
 .title-border {
