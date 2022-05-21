@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
  * @return {*} Returns component.
  */
 function Edit({
-  artist, recordTitle, releaseYear, format, coverURL, id
+  artist, recordTitle, releaseYear, format, coverURL, id, session
 }) {
   const [thisArtist, setThisArtist] = useState('')
   const [thisRecordTitle, setThisRecordTitle] = useState('')
@@ -18,22 +18,27 @@ function Edit({
   const [isPending, setIsPending] = useState(false)
   const navigate = useNavigate()
 
+  console.log(session)
+
   const handleSubmit = (event) => {
     event.preventDefault()
     const record = {
-      artist: thisArtist,
-      recordTitle: thisRecordTitle,
-      releaseYear: thisReleaseYear,
-      format: thisFormat,
-      coverURL: thisCoverURL
+      artist: thisArtist || artist,
+      recordTitle: thisRecordTitle || recordTitle,
+      releaseYear: thisReleaseYear || releaseYear,
+      format: thisFormat || format,
+      coverURL: thisCoverURL || coverURL
     }
 
     setIsPending(true)
 
-    // fetch('http://localhost:8081/api/v1/records', {
+    // fetch(`http://localhost:8081/api/v1/records/${id}`, {
     fetch(`https://sonicred-resource-server.herokuapp.com/api/v1/records/${id}`, {
       method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${session.stsTokenManager.accessToken}`
+      },
       body: JSON.stringify(record)
     }).then(() => {
       setIsPending(false)

@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
  *
  * @return {*} Returns component.
  */
-function Create() {
+function Create({ session }) {
   const [artist, setArtist] = useState('')
   const [recordTitle, setRecordTitle] = useState('')
   const [releaseYear, setReleaseYear] = useState('')
@@ -26,7 +26,10 @@ function Create() {
     // fetch('http://localhost:8081/api/v1/records', {
     fetch('https://sonicred-resource-server.herokuapp.com/api/v1/records', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${session.stsTokenManager.accessToken}`
+      },
       body: JSON.stringify(record)
     }).then(() => {
       setIsPending(false)

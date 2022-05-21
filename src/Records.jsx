@@ -7,11 +7,12 @@ import LoginContext from './Context'
  *
  * @return {*} Returns component.
  */
-function Records({ onEditHandler }) {
+function Records({ onEditHandler, session }) {
   const [record, setRecord] = useState(null)
   const navigate = useNavigate()
   const { loggedIn } = useContext(LoginContext)
   console.log('Records: ', loggedIn)
+  // console.log('session i record: ', `Bearer ${session.stsTokenManager.accessToken}`)
 
   /**
    * Fetches records.
@@ -50,7 +51,10 @@ function Records({ onEditHandler }) {
 
     fetch(`https://sonicred-resource-server.herokuapp.com/api/v1/records/${id}`, {
       method: 'DELETE',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${session.stsTokenManager.accessToken}`
+      },
       body: JSON.stringify(record)
     }).then(() => {
       // history.go(-1)

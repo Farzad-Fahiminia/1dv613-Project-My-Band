@@ -43,6 +43,7 @@ function App() {
       format={format}
       coverURL={coverURL}
       id={id}
+      session={session}
     />)
   }
 
@@ -53,8 +54,8 @@ function App() {
           <Header />
           <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route path="/records" element={<Records onEditHandler={onEditHandler} />} />
-            <Route path="/create" element={<ProtectedRoute><Create /></ProtectedRoute>} />
+            <Route path="/records" element={<Records onEditHandler={onEditHandler} session={session} />} />
+            <Route path="/create" element={<Create session={session} />} />
             <Route path="/edit" element={componentToRender || <Edit />} />
             <Route path="/login" element={<Login />} />
             <Route path="/user" element={<ProtectedRoute><User /></ProtectedRoute>} />
