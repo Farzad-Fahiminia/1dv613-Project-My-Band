@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
-import { Navigate } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import LoginContext from './Context'
-import User from './User'
+import Login from './Login'
 
 /**
  * ProtectedRoute component.
@@ -11,10 +11,7 @@ import User from './User'
 function ProtectedRoute() {
   const { loggedIn } = useContext(LoginContext)
   console.log(loggedIn)
-
-  if (!loggedIn) {
-    return <Navigate to={{ pathname: '/login' }} />
-  } return <User />
+  return loggedIn ? <Outlet /> : <Login />
 }
 
 export default ProtectedRoute

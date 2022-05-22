@@ -51,14 +51,16 @@ function App() {
     <div className="App">
       <LoginContext.Provider value={loggedInValue}>
         <BrowserRouter>
-          <Header />
+          <Header session={session} />
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route path="/records" element={<Records onEditHandler={onEditHandler} session={session} />} />
-            <Route path="/create" element={<Create session={session} />} />
-            <Route path="/edit" element={componentToRender || <Edit />} />
+            <Route element={<ProtectedRoute />}>
+              <Route path="/create" element={<Create session={session} />} />
+              <Route path="/edit" element={componentToRender || <Edit />} />
+              <Route path="/user" element={<User />} />
+            </Route>
             <Route path="/login" element={<Login />} />
-            <Route path="/user" element={<ProtectedRoute><User /></ProtectedRoute>} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
