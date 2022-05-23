@@ -10,7 +10,7 @@ import Login from './Login'
  */
 function ProtectedRoute() {
   const { loggedIn } = useContext(LoginContext)
-  console.log(loggedIn)
+  // console.log(loggedIn)
   return loggedIn ? <Outlet /> : <Login />
 }
 

@@ -20,19 +20,17 @@ import NotFound from './NotFound'
 function App() {
   const session = JSON.parse(sessionStorage.getItem(Object.keys(sessionStorage)
     .filter((session) => session.includes('firebase'))[0]))
-  const hasSession = session ? session.stsTokenManager.accessToken : false
-  // console.log(session?.stsTokenManager?.accessToken)
-  console.log(session)
+  // const hasSession = session ? session.stsTokenManager.accessToken : false
+  const hasSession = session !== null || false
   const [loggedIn, setLoggedIn] = useState(hasSession)
+
+  console.log(hasSession)
 
   const loggedInValue = useMemo(() => ({
     loggedIn, setLoggedIn
   }), [loggedIn])
 
-  // console.log(loggedIn)
-
   const [componentToRender, setComponentToRender] = useState(null)
-
   const onEditHandler = ({
     artist, recordTitle, releaseYear, format, coverURL, id
   }) => {
@@ -51,16 +49,16 @@ function App() {
     <div className="App">
       <LoginContext.Provider value={loggedInValue}>
         <BrowserRouter>
-          <Header session={session} />
+          <Header />
           <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route path="/records" element={<Records onEditHandler={onEditHandler} session={session} />} />
+            <Route path="/records" element={<Records onEditHandler={onEditHandler} />} />
             <Route element={<ProtectedRoute />}>
-              <Route path="/create" element={<Create session={session} />} />
+              <Route path="/create" element={<Create />} />
               <Route path="/edit" element={componentToRender || <Edit />} />
               <Route path="/user" element={<User />} />
             </Route>
-            <Route path="/login" element={<Login />} />
+            <Route path="/login" element={<Login session={session} />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />

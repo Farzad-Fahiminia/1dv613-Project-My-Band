@@ -59,8 +59,10 @@ function Login() {
           <button type="submit" onClick={login}>Login</button>
         </form>
         {/* <button type="submit" onClick={signout}>Signout</button> */}
-
-        <h1 className="center extreme">Register.</h1>
+        <br />
+        <hr />
+        <br />
+        <h2 className="center">Register.</h2>
         <form>
           <label>Email:</label>
           <input type="email" required onChange={(e) => setRegisterEmail(e.target.value)} />
