@@ -11,6 +11,16 @@
   /* overflow-wrap: anywhere; */
 }
 
+::-moz-selection { /* Code for Firefox */
+  color: #fff;
+  background: #181818;
+}
+
+::selection {
+  color: #fff;
+  background: #181818;
+}
+
 html {
   height: 100%;
 }
@@ -57,7 +67,7 @@ a {
 }
 
 .center {
-  text-align: center;
+  text-align: center !important;
 }
 
 .extreme {
@@ -69,6 +79,14 @@ a {
   text-transform: lowercase;
 }
 
+.loading {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+	flex-wrap: wrap;
+  width: 100%;
+}
+
 .light-text {
   color: #fff !important;
 }
@@ -76,6 +94,11 @@ a {
 .block {
   display: block;
   clear: both;
+}
+
+.float-left {
+  display: block;
+  float: left;
 }
 
 .fixedbutton {
@@ -332,6 +355,10 @@ button:active {
   /* box-shadow: 0px 15px 20px rgba(229, 46, 46, 0.4); */
 }
 
+.cover-big {
+  max-width: 500px !important;
+}
+
 .record {
   display: inline-block;
   width: 280px;
@@ -405,7 +432,7 @@ button:active {
 
   .latest-record {
     margin: auto;
-    max-width: 450px;
+    /* max-width: 450px; */
   }
 }
 

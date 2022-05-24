@@ -6,6 +6,7 @@ import Footer from './Footer'
 import Create from './Create'
 import Edit from './Edit'
 import Records from './Records'
+import RecordDetails from './RecordDetails'
 import Login from './Login'
 import User from './User'
 import LoginContext from './Context'
@@ -24,7 +25,8 @@ function App() {
   const hasSession = session !== null || false
   const [loggedIn, setLoggedIn] = useState(hasSession)
 
-  console.log(hasSession)
+  const token = session ? session.stsTokenManager.accessToken : false
+  console.log(token)
 
   const loggedInValue = useMemo(() => ({
     loggedIn, setLoggedIn
@@ -53,6 +55,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route path="/records" element={<Records onEditHandler={onEditHandler} />} />
+            <Route path="/records/:id" element={<RecordDetails onEditHandler={onEditHandler} session={session} />} />
             <Route element={<ProtectedRoute />}>
               <Route path="/create" element={<Create />} />
               <Route path="/edit" element={componentToRender || <Edit />} />

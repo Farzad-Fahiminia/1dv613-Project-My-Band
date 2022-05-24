@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import useFetch from './useFetch'
 
 /**
  * Home component.
@@ -7,6 +8,7 @@ import React, { useState } from 'react'
  */
 function Home() {
   const [record, setRecord] = useState(null)
+  const { data, error, isPending } = useFetch('https://sonicred-resource-server.herokuapp.com/api/v1/records');
 
   /**
    * Fetches records.
@@ -29,16 +31,18 @@ function Home() {
     <div>
       <div className="header-section">
         <div className="content">
+          { isPending && <div className="loading">Loading...</div> }
+          { error && <div>{ error }</div> }
 
           <div className="left-part">
             <h1 className="frontpage-headline">music<br />playing<br />on stage.</h1>
-            {record !== null && (
+            { data && record !== null && (
               <p>Performing now {record[record.length - 1].artist}</p>
             )}
           </div>
 
           <div className="right-part">
-            {record !== null && (
+            { data && record !== null && (
               <div className="latest-record">
                 <h2 className="recently-added">Recently added</h2>
                 <img className="cover-image" src={record[record.length - 1].coverURL} alt="Cover" />
@@ -55,10 +59,7 @@ function Home() {
 
         </div>
       </div>
-      <div className="block content">
-        <h2>En ny sektion med innehåll?</h2>
-        <p>En ny sektion med innehåll?</p>
-      </div>
+      <div className="block content" />
 
     </div>
   )

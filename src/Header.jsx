@@ -10,16 +10,9 @@ import LoginContext from './Context'
  * @return {*} Returns component.
  */
 function Header() {
-  // const hasSession = session ? session.stsTokenManager.accessToken : false
   const { loggedIn } = useContext(LoginContext)
-  // console.log('session: ', session.stsTokenManager.accessToken)
-  // console.log(LoginContext)
-  // console.log('Header: ', loggedIn)
   const navigate = useNavigate()
   const { setLoggedIn } = useContext(LoginContext)
-
-  // console.log(useContext(LoginContext))
-  // console.log(LoginContext)
 
   const signout = async () => {
     try {

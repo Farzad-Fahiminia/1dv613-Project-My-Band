@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate, useParams } from 'react-router-dom'
 import LoginContext from './Context'
 import useFetch from './useFetch'
 
@@ -8,11 +8,13 @@ import useFetch from './useFetch'
  *
  * @return {*} Returns component.
  */
-function Records({ onEditHandler, session }) {
+function RecordDetails({ onEditHandler, session }) {
+  const { id } = useParams()
   const [record, setRecord] = useState(null)
+  const [records, setRecords] = useState(null)
   const navigate = useNavigate()
   const { loggedIn } = useContext(LoginContext)
-  const { data, error, isPending } = useFetch('https://sonicred-resource-server.herokuapp.com/api/v1/records')
+  const { data, error, isPending } = useFetch(`https://sonicred-resource-server.herokuapp.com/api/v1/records/${id}`)
 
   /**
    * Fetches records.
@@ -20,9 +22,13 @@ function Records({ onEditHandler, session }) {
    * @returns {*} - Nothing.
    */
   function fetchData() {
-    if (record === null) {
+    if (records === null) {
+      fetch('https://sonicred-resource-server.herokuapp.com/api/v1/records')
+        .then((response) => response.json())
+        .then((data) => setRecords(data))
+
       // const apiUrl = 'http://localhost:8081/api/v1/records/'
-      const apiUrl = 'https://sonicred-resource-server.herokuapp.com/api/v1/records'
+      const apiUrl = `https://sonicred-resource-server.herokuapp.com/api/v1/records/${id}`
       fetch(apiUrl)
         .then((response) => response.json())
         .then((data) => setRecord(data))
@@ -30,6 +36,8 @@ function Records({ onEditHandler, session }) {
   }
 
   fetchData()
+
+  console.log(record)
 
   const onClickHandler = (event) => {
     event.preventDefault()
@@ -45,9 +53,10 @@ function Records({ onEditHandler, session }) {
   }
 
   const handleRemove = (id) => {
-    const newList = record.filter((item) => item.id !== id)
+    console.log(records)
+    const newList = records.filter((item) => item.id !== id)
 
-    setRecord(newList)
+    setRecords(newList)
 
     fetch(`https://sonicred-resource-server.herokuapp.com/api/v1/records/${id}`, {
       method: 'DELETE',
@@ -55,17 +64,15 @@ function Records({ onEditHandler, session }) {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${session.stsTokenManager.accessToken}`
       },
-      body: JSON.stringify(record)
+      body: JSON.stringify(records)
     }).then(() => {
-      // history.go(-1)
-      // navigate('/records')
+      navigate('/records')
     })
   }
 
   return (
     <div>
       <div className="record-header">
-        <h1 className="center extreme">My records.</h1>
         {loggedIn === true && <NavLink to="/create"><button className="fixedbutton" type="button">+ Add Record</button></NavLink>}
       </div>
       <div className="content">
@@ -73,29 +80,25 @@ function Records({ onEditHandler, session }) {
         <div className="database row">
           { isPending && <div className="loading">Loading...</div> }
           { error && <div>{ error }</div> }
-          { data && record !== null && record.map((records) => (
-            <form onSubmit={onClickHandler} className="record col" key={records.id}>
-              <NavLink to={`/records/${records.id}`}>
-                <input type="hidden" name="id" value={records.id} />
-                <img className="cover-image" src={records.coverURL} alt="Cover" />
-                <input type="hidden" name="coverURL" value={records.coverURL} />
-                <p><b>{records.artist} - {records.recordTitle}</b></p>
-                <input type="hidden" name="artist" value={records.artist} />
-                <input type="hidden" name="recordTitle" value={records.recordTitle} />
-                <p className="small">Released: {records.releaseYear}, Format: {records.format}</p>
-                <input type="hidden" name="releaseYear" value={records.releaseYear} />
-                <input type="hidden" name="format" value={records.format} />
-              </NavLink>
+          { data && record !== null && (
+            <form onSubmit={onClickHandler} className="record col" key={record.id}>
+              <input type="hidden" name="id" value={record.id} />
+              <img className="cover-image cover-big float-left" src={record.coverURL} alt="Cover" />
+              <input type="hidden" name="coverURL" value={record.coverURL} />
+              <p>Artist: {record.artist}</p>
+              <input type="hidden" name="artist" value={record.artist} />
+              <p>Album: {record.recordTitle}</p>
+              <input type="hidden" name="recordTitle" value={record.recordTitle} />
+              <p>Release Year: {record.releaseYear}</p>
+              <input type="hidden" name="releaseYear" value={record.releaseYear} />
+              <p>Format: {record.format}</p>
+              <input type="hidden" name="format" value={record.format} />
               <br />
-              {loggedIn === true && <button type="submit" className="removeBtnStyle">Edit record</button>}<br />
-              {loggedIn === true && (
-              <button type="button" className="removeBtnStyle" onClick={() => handleRemove(records.id)}>
-                Remove
-              </button>
-              )}
+              {loggedIn === true && <button type="submit">Edit record</button>}
+              {loggedIn === true && <button type="button" onClick={() => handleRemove(record.id)}>Remove</button>}
               <br />
             </form>
-          )).reverse()}
+          )}
           {record === null && <p>No records were found.</p>}
         </div>
 
@@ -104,4 +107,4 @@ function Records({ onEditHandler, session }) {
   )
 }
 
-export default Records
+export default RecordDetails
