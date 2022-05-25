@@ -21,13 +21,11 @@ function Register() {
   const register = async (event) => {
     try {
       event.preventDefault()
-      const user = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword)
-      console.log(user)
+      await createUserWithEmailAndPassword(auth, registerEmail, registerPassword)
       const response = await signInWithEmailAndPassword(auth, registerEmail, registerPassword)
       if (response.user.email) {
         const authenticate = getAuth()
-        const token = await getIdToken(authenticate.currentUser)
-        console.log(token)
+        await getIdToken(authenticate.currentUser)
         setLoggedIn(true)
         navigate('/user')
       }
@@ -38,8 +36,8 @@ function Register() {
 
   return (
     <div>
+      <h1 className="extreme center">Register.</h1>
       <div className="content create">
-        <h1 className="center">Register.</h1>
         <form>
           <label>Email:</label>
           <input type="email" required onChange={(e) => setRegisterEmail(e.target.value)} />
