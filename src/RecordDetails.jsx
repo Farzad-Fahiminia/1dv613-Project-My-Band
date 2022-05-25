@@ -53,7 +53,7 @@ function RecordDetails({ onEditHandler, session }) {
   }
 
   const handleRemove = (id) => {
-    console.log(records)
+    // console.log(records)
     const newList = records.filter((item) => item.id !== id)
 
     setRecords(newList)
@@ -77,25 +77,34 @@ function RecordDetails({ onEditHandler, session }) {
       </div>
       <div className="content">
 
-        <div className="database row">
+        <div className="database row-record">
           { isPending && <div className="loading">Loading...</div> }
           { error && <div>{ error }</div> }
           { data && record !== null && (
-            <form onSubmit={onClickHandler} className="record col" key={record.id}>
+            <form onSubmit={onClickHandler} className="col-record" key={record.id}>
               <input type="hidden" name="id" value={record.id} />
-              <img className="cover-image cover-big float-left" src={record.coverURL} alt="Cover" />
-              <input type="hidden" name="coverURL" value={record.coverURL} />
-              <p>Artist: {record.artist}</p>
-              <input type="hidden" name="artist" value={record.artist} />
-              <p>Album: {record.recordTitle}</p>
-              <input type="hidden" name="recordTitle" value={record.recordTitle} />
-              <p>Release Year: {record.releaseYear}</p>
-              <input type="hidden" name="releaseYear" value={record.releaseYear} />
-              <p>Format: {record.format}</p>
-              <input type="hidden" name="format" value={record.format} />
+              <div className="left">
+                <img className="cover-image cover-big float-left" src={record.coverURL} alt="Cover" />
+                <input type="hidden" name="coverURL" value={record.coverURL} />
+              </div>
+              <div className="right">
+                <p className="large">{record.artist}</p>
+                <input type="hidden" name="artist" value={record.artist} />
+                <p>Album: {record.recordTitle}</p>
+                <input type="hidden" name="recordTitle" value={record.recordTitle} />
+                <p>Release Year: {record.releaseYear}</p>
+                <input type="hidden" name="releaseYear" value={record.releaseYear} />
+                <p>Format: {record.format}</p>
+                <input type="hidden" name="format" value={record.format} />
+                <br />
+                <h2>Tracklist</h2>
+                <p>Coming Soon</p>
+              </div>
               <br />
-              {loggedIn === true && <button type="submit">Edit record</button>}
-              {loggedIn === true && <button type="button" onClick={() => handleRemove(record.id)}>Remove</button>}
+              <div className="button-container">
+                {loggedIn === true && <button type="submit">Edit record</button>}
+                {loggedIn === true && <button type="button" onClick={() => handleRemove(record.id)}>Remove</button>}
+              </div>
               <br />
             </form>
           )}

@@ -14,6 +14,8 @@ function Records({ onEditHandler, session }) {
   const { loggedIn } = useContext(LoginContext)
   const { data, error, isPending } = useFetch('https://sonicred-resource-server.herokuapp.com/api/v1/records')
 
+  console.log(session)
+
   /**
    * Fetches records.
    *
@@ -49,13 +51,16 @@ function Records({ onEditHandler, session }) {
 
     setRecord(newList)
 
+    console.log(newList)
+    console.log(session.stsTokenManager.accessToken)
+
     fetch(`https://sonicred-resource-server.herokuapp.com/api/v1/records/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${session.stsTokenManager.accessToken}`
       },
-      body: JSON.stringify(record)
+      body: JSON.stringify(newList)
     }).then(() => {
       // history.go(-1)
       // navigate('/records')

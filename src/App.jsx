@@ -12,6 +12,7 @@ import User from './User'
 import LoginContext from './Context'
 import ProtectedRoute from './ProtectedRoute'
 import NotFound from './NotFound'
+import Register from './Register'
 
 /**
  * App component.
@@ -54,12 +55,13 @@ function App() {
           <Header />
           <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route path="/records" element={<Records onEditHandler={onEditHandler} />} />
+            <Route path="/records" element={<Records onEditHandler={onEditHandler} session={session} />} />
             <Route path="/records/:id" element={<RecordDetails onEditHandler={onEditHandler} session={session} />} />
             <Route element={<ProtectedRoute />}>
               <Route path="/create" element={<Create />} />
               <Route path="/edit" element={componentToRender || <Edit />} />
               <Route path="/user" element={<User />} />
+              <Route path="/register" element={<Register session={session} />} />
             </Route>
             <Route path="/login" element={<Login session={session} />} />
             <Route path="*" element={<NotFound />} />

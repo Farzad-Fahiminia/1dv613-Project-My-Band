@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
-  setPersistence, signInWithEmailAndPassword,
-  getIdToken, getAuth, browserSessionPersistence
+  createUserWithEmailAndPassword, signInWithEmailAndPassword,
+  getIdToken, getAuth
 } from 'firebase/auth'
 import { auth } from './firebase-config'
 import LoginContext from './Context'
@@ -12,17 +12,18 @@ import LoginContext from './Context'
  *
  * @return {*} Returns component.
  */
-function Login() {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
+function Register() {
+  const [registerEmail, setRegisterEmail] = useState('')
+  const [registerPassword, setRegisterPassword] = useState('')
   const navigate = useNavigate()
   const { setLoggedIn } = useContext(LoginContext)
 
-  const login = async (event) => {
+  const register = async (event) => {
     try {
       event.preventDefault()
-      setPersistence(auth, browserSessionPersistence)
-      const response = await signInWithEmailAndPassword(auth, username, password)
+      const user = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword)
+      console.log(user)
+      const response = await signInWithEmailAndPassword(auth, registerEmail, registerPassword)
       if (response.user.email) {
         const authenticate = getAuth()
         const token = await getIdToken(authenticate.currentUser)
@@ -37,19 +38,18 @@ function Login() {
 
   return (
     <div>
-      <h1 className="center extreme">Login.</h1>
       <div className="content create">
+        <h1 className="center">Register.</h1>
         <form>
           <label>Email:</label>
-          <input type="email" required onChange={(e) => setUsername(e.target.value)} />
+          <input type="email" required onChange={(e) => setRegisterEmail(e.target.value)} />
           <label>Password:</label>
-          <input type="password" required onChange={(e) => setPassword(e.target.value)} />
-          <button type="submit" onClick={login}>Login</button>
+          <input type="password" required onChange={(e) => setRegisterPassword(e.target.value)} />
+          <button type="submit" onClick={register}>Register</button>
         </form>
-        {/* <button type="submit" onClick={signout}>Signout</button> */}
       </div>
     </div>
   )
 }
 
-export default Login
+export default Register

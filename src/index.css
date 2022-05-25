@@ -11,6 +11,10 @@
   /* overflow-wrap: anywhere; */
 }
 
+hr {
+  margin: 2em 0;
+}
+
 ::-moz-selection { /* Code for Firefox */
   color: #fff;
   background: #181818;
@@ -48,11 +52,41 @@ a {
 .row {
   display: flex; /* equal height of the children */
   flex-wrap: wrap;
-  align-content: flex-start;
+  width: 100%;
 }
 
 .col {
   align-content: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+.col-record {
+  width: 100%;
+}
+
+.row-record:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.left {
+  display: block;
+  float: left;
+  max-width: 45%;
+}
+
+.right {
+  display: block;
+  float: left;
+  max-width: 51%;
+  margin: 0 2%;
+}
+
+.button-container {
+  display: block;
+  clear: both;
 }
 
 .title-border {
@@ -66,8 +100,14 @@ a {
   letter-spacing: 1px;
 }
 
-.center {
-  text-align: center !important;
+.medium {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.large {
+  font-size: 36px;
+  font-weight: 800;
 }
 
 .extreme {
@@ -79,12 +119,18 @@ a {
   text-transform: lowercase;
 }
 
+.center {
+  text-align: center !important;
+}
+
 .loading {
   display: flex;
   justify-content: center;
   flex-direction: row;
 	flex-wrap: wrap;
   width: 100%;
+  font-size: 1.5em;
+  letter-spacing: 0;
 }
 
 .light-text {
@@ -94,11 +140,6 @@ a {
 .block {
   display: block;
   clear: both;
-}
-
-.float-left {
-  display: block;
-  float: left;
 }
 
 .fixedbutton {
@@ -131,6 +172,7 @@ button {
   transition: all 0.3s ease 0s;
   cursor: pointer;
   outline: none;
+  min-width: fit-content;
  }
  
 button:hover {
@@ -202,8 +244,7 @@ button:active {
   color: inherit;
 }
 
-.navbar a:hover, .link-active {
-  /* color: #c62233; */
+.navbar a:hover, .navbar .link-active {
   border-bottom: #333 solid 1px;
 }
 
@@ -257,7 +298,6 @@ button:active {
 
 .content {
   max-width: 1200px;
-  /* margin: 110px auto !important; */
   margin: 30px auto !important;
   padding: 20px;
 }
@@ -300,6 +340,10 @@ button:active {
   max-width: 350px;
   /* backdrop-filter: blur(20px);
   background-color: #194864b3; */
+}
+
+.latest-record a {
+  text-decoration: solid none;
 }
 
 .latest-record img {
@@ -357,12 +401,17 @@ button:active {
 
 .cover-big {
   max-width: 500px !important;
+  width: 100%;
 }
 
 .record {
   display: inline-block;
   width: 280px;
   margin: 0 20px 20px 0;
+}
+
+.record a {
+  text-decoration: solid none;
 }
 
 /* create new blog form */
@@ -398,6 +447,8 @@ button:active {
 /* ------ Footer ------ */
 .site-footer {
   /* background-color: #fff; */
+  display: block;
+  clear: both;
   padding: 50px 0px;
   text-align: center;
   align-items: center;
@@ -479,6 +530,12 @@ button:active {
     max-width: 350px;
     display: block;
     clear: both;
+  }
+
+  .left, .right {
+    display: block;
+    clear: both;
+    max-width: 100%;
   }
 
 }

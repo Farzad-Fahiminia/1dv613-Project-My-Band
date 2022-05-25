@@ -35,6 +35,7 @@ function Header() {
             <li><NavLink to="/" className={({ isActive }) => (isActive ? 'link-active' : 'link')}>Home</NavLink></li>
             <li><NavLink to="/records" className={({ isActive }) => (isActive ? 'link-active' : 'link')}>My Records</NavLink></li>
             {loggedIn === true && <li><NavLink to="/user" className={({ isActive }) => (isActive ? 'link-active' : 'link')}>User</NavLink></li>}
+            {loggedIn === true && <li><NavLink to="/register" className={({ isActive }) => (isActive ? 'link-active' : 'link')}>Register</NavLink></li>}
             {loggedIn === true && <li><NavLink to="/" onClick={signout}>Signout</NavLink></li>}
             {loggedIn === false && <li><NavLink to="/login" className={({ isActive }) => (isActive ? 'link-active' : 'link')}>Login</NavLink></li>}
           </ul>

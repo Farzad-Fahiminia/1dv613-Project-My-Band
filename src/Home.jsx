@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import useFetch from './useFetch'
 
 /**
@@ -45,13 +46,15 @@ function Home() {
             { data && record !== null && (
               <div className="latest-record">
                 <h2 className="recently-added">Recently added</h2>
-                <img className="cover-image" src={record[record.length - 1].coverURL} alt="Cover" />
-                <p className="band-title">{record[record.length - 1].artist}</p>
-                <p className="band-album center">{record[record.length - 1].recordTitle}</p>
-                <p className="center small">
-                  Release Year: {record[record.length - 1].releaseYear},
-                  Format: {record[record.length - 1].format}
-                </p>
+                <NavLink to={`/records/${record[record.length - 1].id}`}>
+                  <img className="cover-image" src={record[record.length - 1].coverURL} alt="Cover" />
+                  <p className="band-title">{record[record.length - 1].artist}</p>
+                  <p className="band-album center">{record[record.length - 1].recordTitle}</p>
+                  <p className="center small">
+                    Release Year: {record[record.length - 1].releaseYear},
+                    Format: {record[record.length - 1].format}
+                  </p>
+                </NavLink>
                 <br />
               </div>
             )}
