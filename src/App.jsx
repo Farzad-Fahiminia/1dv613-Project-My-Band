@@ -27,7 +27,6 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(hasSession)
 
   const token = session ? session.stsTokenManager.accessToken : false
-  console.log(token)
 
   const loggedInValue = useMemo(() => ({
     loggedIn, setLoggedIn

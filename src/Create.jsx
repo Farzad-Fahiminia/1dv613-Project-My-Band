@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom'
  * @return {*} Returns component.
  */
 function Create({ token }) {
-  console.log(token)
   const [artist, setArtist] = useState('')
   const [recordTitle, setRecordTitle] = useState('')
   const [releaseYear, setReleaseYear] = useState('')
@@ -21,8 +20,6 @@ function Create({ token }) {
     const record = {
       artist, recordTitle, releaseYear, format, coverURL
     }
-
-    console.log(record)
 
     setIsPending(true)
 

@@ -37,8 +37,6 @@ function RecordDetails({ onEditHandler, session }) {
 
   fetchData()
 
-  console.log(record)
-
   const onClickHandler = (event) => {
     event.preventDefault()
     onEditHandler({

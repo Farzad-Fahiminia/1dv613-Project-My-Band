@@ -25,8 +25,7 @@ function Login() {
       const response = await signInWithEmailAndPassword(auth, username, password)
       if (response.user.email) {
         const authenticate = getAuth()
-        const token = await getIdToken(authenticate.currentUser)
-        console.log(token)
+        await getIdToken(authenticate.currentUser)
         setLoggedIn(true)
         navigate('/user')
       }

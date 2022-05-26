@@ -49,9 +49,6 @@ function Records({ onEditHandler, session }) {
 
     setRecord(newList)
 
-    console.log(newList)
-    console.log(session.stsTokenManager.accessToken)
-
     fetch(`https://sonicred-resource-server.herokuapp.com/api/v1/records/${id}`, {
       method: 'DELETE',
       headers: {
