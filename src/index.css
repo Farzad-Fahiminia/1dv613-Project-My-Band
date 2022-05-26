@@ -5,17 +5,23 @@
   margin: 0;
   font-family: 'Inter', sans-serif;
   color: #333;
-  /* background-color: rgb(227, 235, 236); */
-  /* overflow-wrap: break-word; */
-  /* word-break: break-all; */
-  /* overflow-wrap: anywhere; */
 }
 
 hr {
   margin: 2em 0;
 }
 
-::-moz-selection { /* Code for Firefox */
+input:invalid {
+  animation: shake 300ms;
+}
+
+@keyframes shake {
+  25% { transform: translateX(4px); }
+  50% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+::-moz-selection {
   color: #fff;
   background: #181818;
 }

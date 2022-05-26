@@ -39,12 +39,12 @@ function Login() {
     <div>
       <h1 className="center extreme">Login.</h1>
       <div className="content create">
-        <form>
+        <form onSubmit={login}>
           <label>Email:</label>
           <input type="email" required onChange={(e) => setUsername(e.target.value)} />
           <label>Password:</label>
           <input type="password" required onChange={(e) => setPassword(e.target.value)} />
-          <button type="submit" onClick={login}>Login</button>
+          <button type="submit">Login</button>
         </form>
         {/* <button type="submit" onClick={signout}>Signout</button> */}
       </div>

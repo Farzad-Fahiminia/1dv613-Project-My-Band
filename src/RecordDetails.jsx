@@ -53,7 +53,6 @@ function RecordDetails({ onEditHandler, session }) {
   }
 
   const handleRemove = (id) => {
-    // console.log(records)
     const newList = records.filter((item) => item.id !== id)
 
     setRecords(newList)

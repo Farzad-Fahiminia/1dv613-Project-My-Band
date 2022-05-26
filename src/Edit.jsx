@@ -18,8 +18,6 @@ function Edit({
   const [isPending, setIsPending] = useState(false)
   const navigate = useNavigate()
 
-  // console.log(session)
-
   const handleSubmit = (event) => {
     event.preventDefault()
     const record = {

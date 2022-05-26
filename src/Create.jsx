@@ -6,7 +6,8 @@ import { useNavigate } from 'react-router-dom'
  *
  * @return {*} Returns component.
  */
-function Create({ session }) {
+function Create({ token }) {
+  console.log(token)
   const [artist, setArtist] = useState('')
   const [recordTitle, setRecordTitle] = useState('')
   const [releaseYear, setReleaseYear] = useState('')
@@ -21,6 +22,8 @@ function Create({ session }) {
       artist, recordTitle, releaseYear, format, coverURL
     }
 
+    console.log(record)
+
     setIsPending(true)
 
     // fetch('http://localhost:8081/api/v1/records', {
@@ -28,7 +31,7 @@ function Create({ session }) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${session.stsTokenManager.accessToken}`
+        Authorization: `Bearer ${token}`
       },
       body: JSON.stringify(record)
     }).then(() => {

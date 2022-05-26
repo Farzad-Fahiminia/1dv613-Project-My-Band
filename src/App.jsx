@@ -58,7 +58,7 @@ function App() {
             <Route path="/records" element={<Records onEditHandler={onEditHandler} session={session} />} />
             <Route path="/records/:id" element={<RecordDetails onEditHandler={onEditHandler} session={session} />} />
             <Route element={<ProtectedRoute />}>
-              <Route path="/create" element={<Create />} />
+              <Route path="/create" element={<Create token={token} />} />
               <Route path="/edit" element={componentToRender || <Edit />} />
               <Route path="/user" element={<User />} />
               <Route path="/register" element={<Register session={session} />} />
