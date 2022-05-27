@@ -59,6 +59,10 @@ a {
   color: #fff !important;
 }
 
+.white a:hover {
+  border-bottom: #fff 1px solid !important;
+}
+
 .row {
   display: flex; /* equal height of the children */
   flex-wrap: wrap;
