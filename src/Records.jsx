@@ -6,6 +6,7 @@ import useFetch from './useFetch'
 /**
  * Records component.
  *
+ * @param {Object} { onEditHandler, session }
  * @return {*} Returns component.
  */
 function Records({ onEditHandler, session }) {
@@ -17,7 +18,7 @@ function Records({ onEditHandler, session }) {
   /**
    * Fetches records.
    *
-   * @returns {*} - Nothing.
+   * @returns {*} - Records.
    */
   function fetchData() {
     if (record === null) {
@@ -85,11 +86,7 @@ function Records({ onEditHandler, session }) {
               </NavLink>
               <br />
               {loggedIn === true && <button type="submit" className="removeBtnStyle">Edit record</button>}<br />
-              {loggedIn === true && (
-              <button type="button" className="removeBtnStyle" onClick={() => handleRemove(records.id)}>
-                Remove
-              </button>
-              )}
+              {loggedIn === true && <button type="button" className="removeBtnStyle" onClick={() => handleRemove(record.id)}>Remove</button>}
               <br />
             </form>
           )).reverse()}

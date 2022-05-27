@@ -6,6 +6,7 @@ import useFetch from './useFetch'
 /**
  * Records component.
  *
+ * @param {Object} { onEditHandler, session }
  * @return {*} Returns component.
  */
 function RecordDetails({ onEditHandler, session }) {

@@ -29,7 +29,7 @@ function Home() {
   fetchData()
 
   return (
-    <div>
+    <div className="bg">
       <div className="header-section">
         <div className="content">
           { isPending && <div className="loading">Loading...</div> }

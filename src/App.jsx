@@ -1,5 +1,7 @@
 import React, { useMemo, useState } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import {
+  BrowserRouter, Routes, Route
+} from 'react-router-dom'
 import Header from './Header'
 import Home from './Home'
 import Footer from './Footer'
@@ -25,7 +27,6 @@ function App() {
   // const hasSession = session ? session.stsTokenManager.accessToken : false
   const hasSession = session !== null || false
   const [loggedIn, setLoggedIn] = useState(hasSession)
-
   const token = session ? session.stsTokenManager.accessToken : false
 
   const loggedInValue = useMemo(() => ({
