@@ -17,6 +17,7 @@ function Login() {
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
   const { setLoggedIn } = useContext(LoginContext)
+  const [errorMessage, setErrorMessage] = useState('')
 
   const login = async (event) => {
     try {
@@ -31,6 +32,10 @@ function Login() {
       }
     } catch (error) {
       console.log(error.message)
+      setErrorMessage('Email or password does not match!')
+      setTimeout(() => {
+        setErrorMessage('Email or password does not match!')
+      }, 5000)
     }
   }
 
@@ -39,6 +44,7 @@ function Login() {
       <h1 className="center extreme">Login.</h1>
       <div className="content create">
         <form onSubmit={login}>
+          {errorMessage && (<p className="error"> {errorMessage} </p>)}
           <label>Email:</label>
           <input type="email" required onChange={(e) => setUsername(e.target.value)} />
           <label>Password:</label>
