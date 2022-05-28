@@ -1,5 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+.scroll {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 230px;
+  margin: auto;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#scroll-text {
+  position: absolute;
+  white-space: nowrap;
+  animation: scroll 15s linear infinite;
+  width: 100%;
+  transform: translateX(100%);
+  line-height: 1.4em;
+  z-index: 999999999;
+}
+
+@keyframes scroll  {
+to {
+     transform: translateX(-100%);
+  }
+}
+
+
 /* ------ General ------ */
 * {
   margin: 0;
@@ -11,9 +38,9 @@ hr {
   margin: 2em 0;
 }
 
-input:invalid {
+/* input:required:invalid {
   animation: shake 300ms;
-}
+} */
 
 @keyframes shake {
   25% { transform: translateX(4px); }
@@ -29,6 +56,22 @@ input:invalid {
 ::selection {
   color: #fff;
   background: #181818;
+}
+
+
+@keyframes slideInFromAbove {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade {
+  0% { opacity: 0 }
+  10%, 90% { opacity: 1 }
+  100% { opacity: 0 }
 }
 
 html {
@@ -49,10 +92,16 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1em;
+  animation: 300ms ease-out 0s 1 slideInFromAbove;
 }
 
 a {
   transition: all 0.3s ease 0s;
+}
+
+a:hover {
+  color: #fff !important;
+  background-color: #111 !important;
 }
 
 .white a, .white > i {
@@ -64,6 +113,8 @@ a {
 }
 
 .error {
+  opacity: 1;
+  animation: fade 5s linear;
   background-color: #d40000;
   box-shadow: 0px 15px 20px rgba(229, 46, 46, 0.4);
   color: #fff;
@@ -135,10 +186,10 @@ a {
 
 .extreme {
   font-size: 9vw;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: -5px;
   line-height: 0.8em;
-  margin: 25px;
+  margin: 0.4em;
   text-transform: lowercase;
 }
 
@@ -154,6 +205,7 @@ a {
   width: 100%;
   font-size: 1.5em;
   letter-spacing: 0;
+  transition: all 0.3s ease 0s;
 }
 
 .light-text {
@@ -286,9 +338,12 @@ button:active {
   display: none;
 }
 
-.navbar h1:hover, .navbar h1 a:hover {
-  color: #c62233;
+.navbar h1 a:hover {
+  color: #fff !important;
   border-bottom: 0 !important;
+  background-color: #111 !important;
+  /* transform: translateY(-7px); */
+  transition: all 0.3s ease 0s;
 }
 
 .navbar h1 a {
@@ -297,8 +352,9 @@ button:active {
   font-weight: 800;
   font-size: 20px;
   position: relative;
-  top: 10px
-} 
+  top: 10px;
+  line-height: 1em;
+}
 
 .navbar .links {
   margin-left: auto;
@@ -312,6 +368,7 @@ button:active {
   margin-top: -104px;
   padding: 130px 0 30px 0;
   height: 100vh;
+  /* overflow-x: hidden !important; */
 }
 
 /* .header-section {
@@ -351,11 +408,11 @@ button:active {
   color: #fff !important;
 }
 
-.left-part h1 {
-  font-size: 6em;
+/* .left-part h1 {
+  font-size: 9em;
   white-space: break-spaces;
-  font-weight: 900;
-}
+  font-weight: 700;
+} */
 
 .right-part {
   display: block;
@@ -363,9 +420,13 @@ button:active {
 }
 
 .frontpage-headline {
-  text-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  line-height: 0.95em;
+  color: #fff;
+  font-size: 9em;
+  white-space: nowrap;
+  font-weight: 700;
+  line-height: 1.8em;
   margin-top: 0.2em;
+  /* text-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
 }
 
 .latest-record {
@@ -409,8 +470,6 @@ button:active {
   margin-bottom: 0.3em;
   text-transform: uppercase;
   text-align: center;
-  /* overflow-wrap: break-all; */
-  /* text-overflow: ellipsis; */
   overflow-wrap: break-word;
 }
 
@@ -573,6 +632,10 @@ button:active {
     /* margin: 50px; */
     margin-top: 50px;
     margin-bottom: 104px;
+  }
+
+  .extreme {
+    letter-spacing: 0;
   }
 
   .bg {

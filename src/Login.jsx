@@ -31,11 +31,12 @@ function Login() {
         navigate('/user')
       }
     } catch (error) {
-      console.log(error.message)
-      setErrorMessage('Email or password does not match!')
+      // console.log(error.message)
+      setErrorMessage('Email or password does not match. Try again!')
       setTimeout(() => {
-        setErrorMessage('Email or password does not match!')
+        document.querySelector('.error').style.display = 'none'
       }, 5000)
+      document.querySelector('.error').style.display = 'block'
     }
   }
 
