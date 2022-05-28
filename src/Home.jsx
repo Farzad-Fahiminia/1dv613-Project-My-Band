@@ -9,7 +9,7 @@ import useFetch from './useFetch'
  */
 function Home() {
   const [record, setRecord] = useState(null)
-  const { data, error, isPending } = useFetch('https://sonicred-resource-server.herokuapp.com/api/v1/records');
+  const { data, error, isPending } = useFetch('https://sonicred-resource-server.herokuapp.com/api/v1/records')
 
   /**
    * Fetches records.
@@ -35,35 +35,16 @@ function Home() {
       </div>
       <div className="content">
         { error && <div>{ error }</div> }
-
-        <div className="left-part">
-          { data && record !== null && (
-            <p>Performing now {record[record.length - 1].artist}</p>
-          )}
-        </div>
-
+        <p className="uppercase medium text-bg light-text">Performing now </p>
         { isPending && <div className="loading">Loading...</div> }
-        <div className="right-part">
-          { data && record !== null && (
-            <div className="latest-record">
-              <h2 className="recently-added">Recently added</h2>
-              <NavLink to={`/records/${record[record.length - 1].id}`}>
-                <img className="cover-image" src={record[record.length - 1].coverURL} alt="Cover" />
-                <p className="band-title">{record[record.length - 1].artist}</p>
-                <p className="band-album center">{record[record.length - 1].recordTitle}</p>
-                <p className="center small">
-                  Release Year: {record[record.length - 1].releaseYear},
-                  Format: {record[record.length - 1].format}
-                </p>
-              </NavLink>
-              <br />
-            </div>
-          )}
-        </div>
-
+        { data && record !== null && (
+          <div>
+            <p className="extra-large text-bg light-text">{record[record.length - 1].artist}</p>
+            <p className="uppercase medium text-bg light-text">{record[record.length - 1].recordTitle}</p>
+          </div>
+        )}
+        <NavLink to="/records/" className="uppercase white">See more records</NavLink>
       </div>
-      <div className="block content" />
-
     </div>
   )
 }

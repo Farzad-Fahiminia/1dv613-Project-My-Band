@@ -86,7 +86,7 @@ function RecordDetails({ onEditHandler, session }) {
                 <input type="hidden" name="coverURL" value={record.coverURL} />
               </div>
               <div className="right">
-                <p className="large">{record.artist}</p>
+                <h1 className="large">{record.artist}</h1>
                 <input type="hidden" name="artist" value={record.artist} />
                 <p>Album: {record.recordTitle}</p>
                 <input type="hidden" name="recordTitle" value={record.recordTitle} />
@@ -95,7 +95,7 @@ function RecordDetails({ onEditHandler, session }) {
                 <p>Format: {record.format}</p>
                 <input type="hidden" name="format" value={record.format} />
                 <br />
-                <h2>Tracklist</h2>
+                <p className="medium uppercase">Tracklist</p>
                 <p>Coming Soon</p>
               </div>
               <br />

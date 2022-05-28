@@ -55,7 +55,7 @@ function App() {
           <Header />
           <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route path="/records" element={<Records onEditHandler={onEditHandler} session={session} />} />
+            <Route path="/records" element={<Records onEditHandler={onEditHandler} token={token} />} />
             <Route path="/records/:id" element={<RecordDetails onEditHandler={onEditHandler} session={session} />} />
             <Route element={<ProtectedRoute />}>
               <Route path="/create" element={<Create token={token} />} />

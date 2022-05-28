@@ -9,7 +9,7 @@ import useFetch from './useFetch'
  * @param {Object} { onEditHandler, session }
  * @return {*} Returns component.
  */
-function Records({ onEditHandler, session }) {
+function Records({ onEditHandler, token }) {
   const [record, setRecord] = useState(null)
   const navigate = useNavigate()
   const { loggedIn } = useContext(LoginContext)
@@ -54,7 +54,7 @@ function Records({ onEditHandler, session }) {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${session.stsTokenManager.accessToken}`
+        Authorization: `Bearer ${token}`
       },
       body: JSON.stringify(record)
     })
@@ -86,7 +86,7 @@ function Records({ onEditHandler, session }) {
               </NavLink>
               <br />
               {loggedIn === true && <button type="submit" className="removeBtnStyle">Edit record</button>}<br />
-              {loggedIn === true && <button type="button" className="removeBtnStyle" onClick={() => handleRemove(record.id)}>Remove</button>}
+              {loggedIn === true && <button type="button" className="removeBtnStyle" onClick={() => handleRemove(records.id)}>Remove</button>}
               <br />
             </form>
           )).reverse()}
