@@ -19,7 +19,7 @@ import Register from './Register'
 /**
  * App component.
  *
- * @return {*} Returns component.
+ * @return {JSX} Returns component.
  */
 function App() {
   const session = JSON.parse(sessionStorage.getItem(Object.keys(sessionStorage)

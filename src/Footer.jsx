@@ -8,7 +8,7 @@ import React from 'react'
 function Footer() {
   return (
     <footer className="site-footer">
-      <h1>\SONICRED\</h1>
+      <p className="footer-logo">\SONICRED\</p>
       <div className="site-info">
         <p>© 2022 Made by Farzad</p>
       </div>

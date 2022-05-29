@@ -4,8 +4,10 @@ import { useNavigate } from 'react-router-dom'
 /**
  * Edit component.
  *
- * @param {*} props - Specific record.
- * @return {*} Returns component.
+ * @param {String} {
+ *   artist, recordTitle, releaseYear, format, coverURL, id, session
+ * }
+ * @return {JSX} Returns component.
  */
 function Edit({
   artist, recordTitle, releaseYear, format, coverURL, id, session

@@ -7,7 +7,7 @@ import useFetch from './useFetch'
  * Records component.
  *
  * @param {Object} { onEditHandler, session }
- * @return {*} Returns component.
+ * @return {JSX} Returns component.
  */
 function RecordDetails({ onEditHandler, session }) {
   const { id } = useParams()

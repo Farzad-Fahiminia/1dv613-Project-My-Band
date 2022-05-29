@@ -7,7 +7,7 @@ import LoginContext from './Context'
 /**
  * Header component.
  *
- * @return {*} Returns component.
+ * @return {JSX} Returns component.
  */
 function Header() {
   const { loggedIn } = useContext(LoginContext)

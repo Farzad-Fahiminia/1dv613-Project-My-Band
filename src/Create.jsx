@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 /**
  * Create component.
  *
- * @return {*} Returns component.
+ * @return {JSX} Returns component.
  */
 function Create({ token }) {
   const [artist, setArtist] = useState('')

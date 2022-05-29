@@ -5,7 +5,7 @@ import useFetch from './useFetch'
 /**
  * User component.
  *
- * @return {*} Returns component.
+ * @return {JSX} Returns component.
  */
 function User() {
   const [record, setRecord] = useState(null)

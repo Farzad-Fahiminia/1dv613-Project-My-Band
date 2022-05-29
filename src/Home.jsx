@@ -5,7 +5,7 @@ import useFetch from './useFetch'
 /**
  * Home component.
  *
- * @return {*} Returns component.
+ * @return {JSX} Returns component.
  */
 function Home() {
   const [record, setRecord] = useState(null)

@@ -10,7 +10,7 @@ import LoginContext from './Context'
 /**
  * Login component.
  *
- * @return {*} Returns component.
+ * @return {JSX} Returns component.
  */
 function Login() {
   const [username, setUsername] = useState('')

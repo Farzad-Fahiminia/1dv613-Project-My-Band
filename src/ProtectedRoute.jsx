@@ -6,7 +6,7 @@ import Login from './Login'
 /**
  * ProtectedRoute component.
  *
- * @return {*} Returns component.
+ * @return {JSX} Returns component.
  */
 function ProtectedRoute() {
   const { loggedIn } = useContext(LoginContext)
