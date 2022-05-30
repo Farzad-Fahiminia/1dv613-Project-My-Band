@@ -32,7 +32,7 @@ function User() {
       <h1 className="center extreme">User</h1>
       <div className="content create">
         <p>Welcome to the dashboard, User</p>
-        <NavLink to="/records/">See more records</NavLink>
+        <NavLink to="/records/">View more records</NavLink>
       </div>
 
       { error && <div>{ error }</div> }

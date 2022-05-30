@@ -43,7 +43,7 @@ function Home() {
             <p className="uppercase medium text-bg light-text">{record[record.length - 1].recordTitle}</p>
           </div>
         )}
-        <NavLink to="/records/" className="uppercase white">See more records</NavLink>
+        <NavLink to="/records/" className="uppercase white">View more records</NavLink>
       </div>
     </div>
   )

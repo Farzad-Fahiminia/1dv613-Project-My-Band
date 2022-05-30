@@ -166,10 +166,12 @@ a:hover {
 }
 
 .text-bg {
-  background-color: #585858;
+  background-color: #00000080;
   width: fit-content;
   padding: 5px;
   margin-bottom: 5px;
+  backdrop-filter: blur(10px);
+  border-radius: 4px;
 }
 
 .uppercase {
