@@ -24,7 +24,8 @@ function Create({ token }) {
     setIsPending(true)
 
     // fetch('http://localhost:8081/api/v1/records', {
-    fetch('https://sonicred-resource-server.herokuapp.com/api/v1/records', {
+    // fetch('https://sonicred-resource-server.herokuapp.com/api/v1/records', {
+    fetch('https://web-production-8fdc.up.railway.app/api/v1/records', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

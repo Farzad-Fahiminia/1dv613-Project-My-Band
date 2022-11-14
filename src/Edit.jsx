@@ -33,7 +33,8 @@ function Edit({
     setIsPending(true)
 
     // fetch(`http://localhost:8081/api/v1/records/${id}`, {
-    fetch(`https://sonicred-resource-server.herokuapp.com/api/v1/records/${id}`, {
+    // fetch(`https://sonicred-resource-server.herokuapp.com/api/v1/records/${id}`, {
+    fetch(`https://web-production-8fdc.up.railway.app/api/v1/records/${id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',

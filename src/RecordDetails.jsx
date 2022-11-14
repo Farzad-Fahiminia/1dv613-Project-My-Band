@@ -15,7 +15,8 @@ function RecordDetails({ onEditHandler, session }) {
   const [records, setRecords] = useState(null)
   const navigate = useNavigate()
   const { loggedIn } = useContext(LoginContext)
-  const { data, error, isPending } = useFetch(`https://sonicred-resource-server.herokuapp.com/api/v1/records/${id}`)
+  // const { data, error, isPending } = useFetch(`https://sonicred-resource-server.herokuapp.com/api/v1/records/${id}`)
+  const { data, error, isPending } = useFetch(`https://web-production-8fdc.up.railway.app/api/v1/records/${id}`)
 
   /**
    * Fetches records.
@@ -24,12 +25,14 @@ function RecordDetails({ onEditHandler, session }) {
    */
   function fetchData() {
     if (records === null) {
-      fetch('https://sonicred-resource-server.herokuapp.com/api/v1/records')
+      // fetch('https://sonicred-resource-server.herokuapp.com/api/v1/records')
+      fetch('https://web-production-8fdc.up.railway.app/api/v1/records')
         .then((response) => response.json())
         .then((data) => setRecords(data))
 
       // const apiUrl = 'http://localhost:8081/api/v1/records/'
-      const apiUrl = `https://sonicred-resource-server.herokuapp.com/api/v1/records/${id}`
+      // const apiUrl = `https://sonicred-resource-server.herokuapp.com/api/v1/records/${id}`
+      const apiUrl = `https://web-production-8fdc.up.railway.app/api/v1/records/${id}`
       fetch(apiUrl)
         .then((response) => response.json())
         .then((data) => setRecord(data))
@@ -56,7 +59,8 @@ function RecordDetails({ onEditHandler, session }) {
 
     setRecords(newList)
 
-    fetch(`https://sonicred-resource-server.herokuapp.com/api/v1/records/${id}`, {
+    // fetch(`https://sonicred-resource-server.herokuapp.com/api/v1/records/${id}`, {
+    fetch(`https://web-production-8fdc.up.railway.app/api/v1/records/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

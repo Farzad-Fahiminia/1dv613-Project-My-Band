@@ -9,7 +9,8 @@ import useFetch from './useFetch'
  */
 function User() {
   const [record, setRecord] = useState(null)
-  const { data, error, isPending } = useFetch('https://sonicred-resource-server.herokuapp.com/api/v1/records')
+  // const { data, error, isPending } = useFetch('https://sonicred-resource-server.herokuapp.com/api/v1/records')
+  const { data, error, isPending } = useFetch('https://web-production-8fdc.up.railway.app/api/v1/records')
 
   /**
   * Fetches records.
@@ -19,7 +20,8 @@ function User() {
   function fetchData() {
     if (record === null) {
       // const apiUrl = 'http://localhost:8081/api/v1/records/'
-      const apiUrl = 'https://sonicred-resource-server.herokuapp.com/api/v1/records'
+      // const apiUrl = 'https://sonicred-resource-server.herokuapp.com/api/v1/records'
+      const apiUrl = 'https://web-production-8fdc.up.railway.app/api/v1/records'
       fetch(apiUrl)
         .then((response) => response.json())
         .then((data) => setRecord(data))
